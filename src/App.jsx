@@ -1,7 +1,9 @@
+import NavBar from "./Shared/NavBar/NavBar";
+
 function App() {
   return (
     <>
-      <h1>Vite + React</h1>
+      <NavBar></NavBar>
     </>
   );
 }

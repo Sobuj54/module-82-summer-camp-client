@@ -2,7 +2,15 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        amaranth: ["Amaranth", "sans-serif"],
+        amita: ["Amita", "cursive"],
+        akronim: ["Akronim", "cursive"],
+        stencil: ["Allerta Stencil", "sans-serif"],
+        bellefair: ["Bellefair", "serif"],
+      },
+    },
   },
   plugins: [],
 };
