@@ -21,7 +21,6 @@ const Hero = () => {
     <Swiper
       spaceBetween={0}
       centeredSlides={true}
-      loop={true}
       autoplay={{
         delay: 2500,
         disableOnInteraction: false,
@@ -30,6 +29,7 @@ const Hero = () => {
         clickable: true,
       }}
       navigation={true}
+      loop={true}
       modules={[Autoplay, Pagination, Navigation]}
       className="h-screen w-full 2xl:max-w-7xl">
       {heroData.map((data) => (

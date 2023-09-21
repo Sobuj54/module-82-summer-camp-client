@@ -108,7 +108,7 @@ const NavBar = () => {
             to="/login"
             className="hidden font-amaranth lg:inline-flex items-center justify-center px-5 py-2.5 text-base transition-all duration-200 hover:bg-yellow-300 hover:text-black focus:text-black focus:bg-yellow-300 font-semibold text-white bg-black rounded-full">
             {" "}
-            Join Now{" "}
+            Login{" "}
           </Link>
 
           {/* nav links for mobile devices */}
@@ -124,7 +124,7 @@ const NavBar = () => {
               to="/login"
               className="font-amaranth mt-4 inline-flex items-center justify-center px-5 py-2.5 text-sm sm:text-base transition-all duration-200 hover:bg-yellow-300 hover:text-black focus:text-black focus:bg-yellow-300 font-semibold text-white bg-black rounded-full">
               {" "}
-              Join Now{" "}
+              Login{" "}
             </Link>
           </div>
         </div>

@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <section className="py-10 bg-white sm:pt-16 lg:pt-24">
+    <section className="py-10 bg-gradient-to-b from-green-50 to-green-100 sm:pt-16 lg:pt-24">
       <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-12 gap-y-12 gap-x-8 xl:gap-x-12">
           <div className="col-span-2 md:col-span-4 xl:pr-8">
