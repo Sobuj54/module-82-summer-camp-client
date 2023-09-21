@@ -24,7 +24,7 @@ const MidHero = () => {
                     provide a safe, inclusive, and supportive environment for
                     creative expression.
                   </p>
-                  <div className="flex flex-col md:flex-row justify-between mt-7">
+                  <div className="flex flex-col sm:flex-row justify-between items-center space-y-6 mt-7">
                     <div>
                       <img src={diversity} alt="diversity" />
                     </div>

@@ -19,8 +19,7 @@ const Hero = () => {
 
   return (
     <Swiper
-      slidesPerView={1}
-      spaceBetween={30}
+      spaceBetween={0}
       centeredSlides={true}
       loop={true}
       autoplay={{
@@ -32,11 +31,11 @@ const Hero = () => {
       }}
       navigation={true}
       modules={[Autoplay, Pagination, Navigation]}
-      className="h-screen w-full">
+      className="h-screen w-full 2xl:max-w-7xl">
       {heroData.map((data) => (
         <SwiperSlide key={data.id}>
           <div
-            className="bg-cover w-full h-full"
+            className="bg-cover w-full h-full "
             style={{ backgroundImage: `url(${data?.img})` }}>
             <div className=" bg-gradient-to-r from-black/70 to-black/10 w-full h-full">
               <div className="flex flex-col justify-center items-center md:w-9/12 lg:w-8/12 mx-auto h-full gap-6 md:gap-10">
