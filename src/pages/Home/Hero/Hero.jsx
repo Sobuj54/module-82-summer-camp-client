@@ -28,7 +28,6 @@ const Hero = () => {
         clickable: true,
       }}
       navigation={true}
-      loop={true}
       modules={[Autoplay, Pagination, Navigation]}
       className="h-screen w-full 2xl:max-w-7xl">
       {heroData.map((data) => (

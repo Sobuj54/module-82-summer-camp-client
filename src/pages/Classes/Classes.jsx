@@ -29,7 +29,7 @@ const Classes = () => {
           Summer 2023
         </h2>
 
-        <div className="grid grid-cols-3 gap-10 max-w-7xl mx-auto pt-14 pb-28">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-10 px-4 sm:px-7 lg:px-0 max-w-7xl mx-auto pt-14 pb-28">
           {classes.map((Class) => (
             <ClassCard key={Class?.id} Class={Class}></ClassCard>
           ))}
