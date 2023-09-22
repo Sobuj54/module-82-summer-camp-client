@@ -25,6 +25,8 @@ const Testimonials = () => {
         </span>
       </h1>
       <Swiper
+        slidesPerView={1}
+        spaceBetween={30}
         pagination={{
           clickable: true,
         }}
