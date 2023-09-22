@@ -1,0 +1,183 @@
+[
+    {
+      "id": 1,
+      "img": "https://img.freepik.com/free-photo/beautiful-natural-environment-digital-painting_456031-170.jpg?size=626&ext=jpg",
+      "name": "Painting Paradise",
+      "description": "Explore the world of painting with various techniques, from watercolors to acrylics. Campers will create stunning masterpieces and discover their inner artist.",
+      "age_group": "Ages 6-9",
+      "schedule": "Monday, Wednesday, Friday: 9:00 AM - 12:00 PM",
+      "instructor": "Emily Anderson"
+    },
+    {
+      "id": 2,
+      "img": "https://img.freepik.com/free-photo/woman-posing-as-greek-goddess-side-view_23-2150099276.jpg?size=626&ext=jpg",
+      "name": "Sculpture Sensations",
+      "description": "Campers will sculpt, mold, and shape their imagination into three-dimensional art. From clay to wire, they'll craft amazing sculptures.",
+      "age_group": "Ages 10-13",
+      "schedule": "Tuesday, Thursday: 1:00 PM - 4:00 PM",
+      "instructor": "David Turner"
+    },
+    {
+      "id": 3,
+      "img": "https://img.freepik.com/free-photo/person-s-hand-making-handmade-jewelry_23-2147899101.jpg?size=626&ext=jpg",
+      "name": "Crafty Creations",
+      "description": "Get ready to dive into the world of crafts! From jewelry making to paper crafting, campers will unleash their creativity through hands-on projects.",
+      "age_group": "Ages 7-11",
+      "schedule": "Tuesday, Thursday: 9:30 AM - 11:30 AM",
+      "instructor": "Olivia Mitchell"
+    },
+    {
+      "id": 4,
+      "img": "https://img.freepik.com/free-photo/side-view-female-artist-painting-with-palette_23-2148612676.jpg?size=626&ext=jpg",
+      "name": "Art Adventures for Teens",
+      "description": "Teenagers will explore advanced art techniques, experiment with multimedia, and develop a strong portfolio for future art pursuits.",
+      "age_group": "Ages 14-17",
+      "schedule": "Monday, Wednesday, Friday: 1:30 PM - 4:30 PM",
+      "instructor": "Michael Garcia"
+    },
+    {
+      "id": 5,
+      "img": "https://img.freepik.com/free-photo/child-having-immersive-experience-while-playing_23-2149552018.jpg?size=626&ext=jpg",
+      "name": "Outdoor Sketching",
+      "description": "Campers will take their art outdoors to sketch landscapes, animals, and more. This class combines creativity with nature.",
+      "age_group": "Ages 8-12",
+      "schedule": "Wednesday: 10:00 AM - 12:00 PM",
+      "instructor": "Sophia Walker"
+    },
+    {
+      "id": 6,
+      "img": "https://img.freepik.com/free-photo/hands-potter-creating-earthen-jar_181624-58400.jpg?size=626&ext=jpg",
+      "name": "Pottery Perfection",
+      "description": "Experience the tactile joy of molding clay into beautiful pottery. Learn various pottery techniques and create functional and decorative pieces.",
+      "age_group": "Ages 11-14",
+      "schedule": "Monday, Wednesday: 2:00 PM - 4:00 PM",
+      "instructor": "Daniel Smith"
+    },
+    {
+      "id": 7,
+      "img": "https://img.freepik.com/free-photo/collage-mountain-made-with-chalk_23-2150722089.jpg?size=626&ext=jpg",
+      "name": "Digital Art Discovery",
+      "description": "Campers will explore the world of digital art using tablets and software. They'll create digital illustrations, animations, and more.",
+      "age_group": "Ages 12-16",
+      "schedule": "Tuesday, Thursday: 2:30 PM - 4:30 PM",
+      "instructor": "Ella Roberts"
+    },
+    {
+      "id": 8,
+      "img": "https://img.freepik.com/free-photo/coffee-relaxation-beverage-planning-data-digital-concept_53876-14124.jpg?size=626&ext=jpg",
+      "name": "Creative Writing Workshop",
+      "description": "Nurture the writer within! Campers will explore various writing styles and create their own stories, poems, and more.",
+      "age_group": "Ages 9-13",
+      "schedule": "Wednesday, Friday: 1:00 PM - 3:00 PM",
+      "instructor": "Liam Turner"
+    },
+    {
+      "id": 9,
+      "img": "https://img.freepik.com/free-photo/magical-landscape-with-hand-holding-whale_23-2150219253.jpg?size=626&ext=jpg",
+      "name": "Mixed Media Magic",
+      "description": "Blend different art forms like painting, collage, and sculpture to create unique mixed media artworks. Unleash your creativity!",
+      "age_group": "Ages 8-12",
+      "schedule": "Tuesday, Thursday: 10:00 AM - 12:00 PM",
+      "instructor": "Nina Wilson"
+    },
+    {
+      "id": 10,
+      "img": "https://img.freepik.com/free-photo/beautiful-view-greenery-bridge-forest-perfect-background_181624-17827.jpg?size=626&ext=jpg",
+      "name": "Nature Photography",
+      "description": "Capture the beauty of nature through photography. Campers will learn photography techniques and explore outdoor photo sessions.",
+      "age_group": "Ages 13-17",
+      "schedule": "Monday, Wednesday: 10:00 AM - 12:00 PM",
+      "instructor": "James Baker"
+    },
+    {
+      "id": 11,
+      "img": "https://img.freepik.com/free-photo/different-type-three-carnival-mask-stack-books-with-glitter-sequins-fabric-wooden-desk_23-2148051843.jpg?size=626&ext=jpg",
+      "name": "Drama and Theater Arts",
+      "description": "Campers will dive into the world of acting, improv, and theater production. They'll stage their own performances and build confidence.",
+      "age_group": "Ages 8-12",
+      "schedule": "Wednesday, Friday: 3:30 PM - 5:30 PM",
+      "instructor": "Isabella Green"
+    },
+    {
+      "id": 12,
+      "img": "https://img.freepik.com/free-photo/friends-cooking-japanese-food-together_23-2149366795.jpg?size=626&ext=jpg",
+      "name": "Culinary Creations",
+      "description": "Discover the art of cooking! Campers will learn to prepare delicious dishes and explore culinary creativity in the kitchen.",
+      "age_group": "Ages 10-14",
+      "schedule": "Tuesday, Thursday: 3:00 PM - 5:00 PM",
+      "instructor": "Lucas Martinez"
+    },
+    {
+      "id": 13,
+      "img": "https://img.freepik.com/free-photo/side-view-man-playing-classical-piano-recital_23-2148673647.jpg?size=626&ext=jpg",
+      "name": "Music Maestros",
+      "description": "Explore the world of music with instruments, singing, and composition. Campers will create their own musical compositions.",
+      "age_group": "Ages 9-13",
+      "schedule": "Monday, Wednesday: 3:00 PM - 5:00 PM",
+      "instructor": "Emma Johnson"
+    },
+    {
+      "id": 14,
+      "img": "https://img.freepik.com/free-photo/restorer-gilding-icon-with-agate-burnisher_1398-3373.jpg?size=626&ext=jpg",
+      "name": "Printmaking Explorations",
+      "description": "Campers will experiment with printmaking techniques such as linocut and etching to create unique and expressive artworks.",
+      "age_group": "Ages 11-15",
+      "schedule": "Tuesday, Thursday: 11:00 AM - 1:00 PM",
+      "instructor": "Ethan Collins"
+    },
+    {
+      "id": 15,
+      "img": "https://img.freepik.com/free-photo/knitting-golden-ribbon-carpet_114579-12291.jpg?size=626&ext=jpg",
+      "name": "Textile Arts Adventure",
+      "description": "Learn the art of textile design, fabric painting, and weaving. Campers will create their own textile masterpieces.",
+      "age_group": "Ages 8-12",
+      "schedule": "Wednesday, Friday: 11:30 AM - 1:30 PM",
+      "instructor": "Ava Smith"
+    },
+    {
+      "id": 16,
+      "img": "https://img.freepik.com/free-photo/bang-comic-bubble-speech-pop-art-style_23-2147910145.jpg?size=626&ext=jpg",
+      "name": "Cartooning and Comics",
+      "description": "Campers will dive into the world of cartooning, character design, and comic book creation. Unleash your inner comic artist!",
+      "age_group": "Ages 10-14",
+      "schedule": "Monday, Wednesday: 11:30 AM - 1:30 PM",
+      "instructor": "Noah Turner"
+    },
+    {
+      "id": 17,
+      "img": "https://img.freepik.com/free-photo/flat-lay-creative-paper-planets-assortment_23-2148874952.jpg?size=626&ext=jpg",
+      "name": "Science and Art Fusion",
+      "description": "Explore the intersection of art and science! Campers will conduct creative experiments and create artworks inspired by science.",
+      "age_group": "Ages 9-13",
+      "schedule": "Tuesday, Thursday: 2:00 PM - 4:00 PM",
+      "instructor": "Lily Davis"
+    },
+    {
+      "id": 18,
+      "img": "https://img.freepik.com/free-photo/camera-photographic-with-smartphone-devices-generative-ai_188544-12171.jpg?size=626&ext=jpg",
+      "name": "Photography Editing",
+      "description": "Campers will learn photo editing techniques to enhance their photography skills. Dive into the world of digital image manipulation.",
+      "age_group": "Ages 12-16",
+      "schedule": "Wednesday, Friday: 2:30 PM - 4:30 PM",
+      "instructor": "Matthew White"
+    },
+    {
+      "id": 19,
+      "img": "https://img.freepik.com/free-photo/young-tourist-woman-looking-map_23-2147653002.jpg?size=626&ext=jpg",
+      "name": "Exploring Art History",
+      "description": "Journey through the history of art! Campers will learn about famous artists and create artworks inspired by different art movements.",
+      "age_group": "Ages 11-15",
+      "schedule": "Monday, Wednesday: 4:00 PM - 6:00 PM",
+      "instructor": "Grace Clark"
+    },
+    {
+      "id": 20,
+      "img": "https://img.freepik.com/free-photo/colorful-mosaic-backdrop-with-geometric-shaped-tiles-generative-ai_188544-7997.jpg?size=626&ext=jpg",
+      "name": "Mosaic Marvels",
+      "description": "Campers will create stunning mosaic artworks using colorful tiles and glass. Discover the beauty of this ancient art form.",
+      "age_group": "Ages 9-13",
+      "schedule": "Tuesday, Thursday: 3:30 PM - 5:30 PM",
+      "instructor": "Benjamin Hall"
+    }
+  ]
+  
