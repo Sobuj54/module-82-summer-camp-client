@@ -16,7 +16,7 @@ const ClassCard = ({ Class }) => {
       </h2>
       <h6 className="text-center font-amaranth text-lg">{age_group}</h6>
       <p className="text-center font-amaranth text-base my-2">{schedule}</p>
-      <div className="flex flex-col sm:flex-row mt-6 mb-5 items-center justify-center gap-8">
+      <div className="flex flex-col sm:flex-row mt-9 mb-5 items-center justify-center gap-8">
         <button className="bg-rose-500 font-semibold w-28 p-3 rounded-lg text-white font-amita">
           Show More
         </button>

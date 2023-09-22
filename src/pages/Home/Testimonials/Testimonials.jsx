@@ -48,13 +48,13 @@ const Testimonials = () => {
         {testimonials.map((testimonial) => (
           <SwiperSlide key={testimonial.id}>
             <div className="border-2 border-green-200 p-4 space-y-4 my-16 sm:my-20 rounded-lg">
-              <div className="flex items-center">
+              <div className="flex flex-col sm:flex-row items-center">
                 <img
                   src={testimonial?.img}
                   alt={testimonial?.name}
                   className="w-16 sm:w-24 h-16 sm:h-24 rounded-full object-cover"
                 />
-                <div className="ml-8">
+                <div className="sm:ml-8">
                   <h2 className="text-xl sm:text-2xl font-semibold font-amaranth">
                     {testimonial?.name}
                   </h2>
@@ -63,7 +63,7 @@ const Testimonials = () => {
                   </h4>
                 </div>
               </div>
-              <p className="h-48 overflow-y-auto text-sm sm:text-base font-amaranth">
+              <p className="h-60 sm:h-48 overflow-y-auto text-sm sm:text-base font-amaranth">
                 {testimonial?.comment}
               </p>
             </div>
