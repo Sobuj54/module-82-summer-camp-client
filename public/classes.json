@@ -5,6 +5,7 @@
       "name": "Painting Paradise",
       "description": "Explore the world of painting with various techniques, from watercolors to acrylics. Campers will create stunning masterpieces and discover their inner artist.",
       "age_group": "Ages 6-9",
+      "price": 150,
       "schedule": "Monday, Wednesday, Friday: 9:00 AM - 12:00 PM",
       "instructor": "Emily Anderson"
     },
@@ -14,6 +15,7 @@
       "name": "Sculpture Sensations",
       "description": "Campers will sculpt, mold, and shape their imagination into three-dimensional art. From clay to wire, they'll craft amazing sculptures.",
       "age_group": "Ages 10-13",
+      "price": 100,
       "schedule": "Tuesday, Thursday: 1:00 PM - 4:00 PM",
       "instructor": "David Turner"
     },
@@ -23,6 +25,7 @@
       "name": "Crafty Creations",
       "description": "Get ready to dive into the world of crafts! From jewelry making to paper crafting, campers will unleash their creativity through hands-on projects.",
       "age_group": "Ages 7-11",
+      "price": 120,
       "schedule": "Tuesday, Thursday: 9:30 AM - 11:30 AM",
       "instructor": "Olivia Mitchell"
     },
@@ -32,6 +35,7 @@
       "name": "Art Adventures for Teens",
       "description": "Teenagers will explore advanced art techniques, experiment with multimedia, and develop a strong portfolio for future art pursuits.",
       "age_group": "Ages 14-17",
+      "price": 140,
       "schedule": "Monday, Wednesday, Friday: 1:30 PM - 4:30 PM",
       "instructor": "Michael Garcia"
     },
@@ -41,6 +45,7 @@
       "name": "Outdoor Sketching",
       "description": "Campers will take their art outdoors to sketch landscapes, animals, and more. This class combines creativity with nature.",
       "age_group": "Ages 8-12",
+      "price": 70,
       "schedule": "Wednesday: 10:00 AM - 12:00 PM",
       "instructor": "Sophia Walker"
     },
@@ -50,6 +55,7 @@
       "name": "Pottery Perfection",
       "description": "Experience the tactile joy of molding clay into beautiful pottery. Learn various pottery techniques and create functional and decorative pieces.",
       "age_group": "Ages 11-14",
+      "price": 160,
       "schedule": "Monday, Wednesday: 2:00 PM - 4:00 PM",
       "instructor": "Daniel Smith"
     },
@@ -59,6 +65,7 @@
       "name": "Digital Art Discovery",
       "description": "Campers will explore the world of digital art using tablets and software. They'll create digital illustrations, animations, and more.",
       "age_group": "Ages 12-16",
+      "price": 90,
       "schedule": "Tuesday, Thursday: 2:30 PM - 4:30 PM",
       "instructor": "Ella Roberts"
     },
@@ -68,6 +75,7 @@
       "name": "Creative Writing Workshop",
       "description": "Nurture the writer within! Campers will explore various writing styles and create their own stories, poems, and more.",
       "age_group": "Ages 9-13",
+      "price": 170,
       "schedule": "Wednesday, Friday: 1:00 PM - 3:00 PM",
       "instructor": "Liam Turner"
     },
@@ -77,6 +85,7 @@
       "name": "Mixed Media Magic",
       "description": "Blend different art forms like painting, collage, and sculpture to create unique mixed media artworks. Unleash your creativity!",
       "age_group": "Ages 8-12",
+      "price": 130,
       "schedule": "Tuesday, Thursday: 10:00 AM - 12:00 PM",
       "instructor": "Nina Wilson"
     },
@@ -86,6 +95,7 @@
       "name": "Nature Photography",
       "description": "Capture the beauty of nature through photography. Campers will learn photography techniques and explore outdoor photo sessions.",
       "age_group": "Ages 13-17",
+      "price": 100,
       "schedule": "Monday, Wednesday: 10:00 AM - 12:00 PM",
       "instructor": "James Baker"
     },
@@ -95,6 +105,7 @@
       "name": "Drama and Theater Arts",
       "description": "Campers will dive into the world of acting, improv, and theater production. They'll stage their own performances and build confidence.",
       "age_group": "Ages 8-12",
+      "price": 50,
       "schedule": "Wednesday, Friday: 3:30 PM - 5:30 PM",
       "instructor": "Isabella Green"
     },
@@ -104,6 +115,7 @@
       "name": "Culinary Creations",
       "description": "Discover the art of cooking! Campers will learn to prepare delicious dishes and explore culinary creativity in the kitchen.",
       "age_group": "Ages 10-14",
+      "price": 80,
       "schedule": "Tuesday, Thursday: 3:00 PM - 5:00 PM",
       "instructor": "Lucas Martinez"
     },
@@ -113,6 +125,7 @@
       "name": "Music Maestros",
       "description": "Explore the world of music with instruments, singing, and composition. Campers will create their own musical compositions.",
       "age_group": "Ages 9-13",
+      "price": 90,
       "schedule": "Monday, Wednesday: 3:00 PM - 5:00 PM",
       "instructor": "Emma Johnson"
     },
@@ -122,6 +135,7 @@
       "name": "Printmaking Explorations",
       "description": "Campers will experiment with printmaking techniques such as linocut and etching to create unique and expressive artworks.",
       "age_group": "Ages 11-15",
+      "price": 60,
       "schedule": "Tuesday, Thursday: 11:00 AM - 1:00 PM",
       "instructor": "Ethan Collins"
     },
@@ -131,6 +145,7 @@
       "name": "Textile Arts Adventure",
       "description": "Learn the art of textile design, fabric painting, and weaving. Campers will create their own textile masterpieces.",
       "age_group": "Ages 8-12",
+      "price": 110,
       "schedule": "Wednesday, Friday: 11:30 AM - 1:30 PM",
       "instructor": "Ava Smith"
     },
@@ -140,6 +155,7 @@
       "name": "Cartooning and Comics",
       "description": "Campers will dive into the world of cartooning, character design, and comic book creation. Unleash your inner comic artist!",
       "age_group": "Ages 10-14",
+      "price": 80,
       "schedule": "Monday, Wednesday: 11:30 AM - 1:30 PM",
       "instructor": "Noah Turner"
     },
@@ -149,6 +165,7 @@
       "name": "Science and Art Fusion",
       "description": "Explore the intersection of art and science! Campers will conduct creative experiments and create artworks inspired by science.",
       "age_group": "Ages 9-13",
+      "price": 50,
       "schedule": "Tuesday, Thursday: 2:00 PM - 4:00 PM",
       "instructor": "Lily Davis"
     },
@@ -158,6 +175,7 @@
       "name": "Photography Editing",
       "description": "Campers will learn photo editing techniques to enhance their photography skills. Dive into the world of digital image manipulation.",
       "age_group": "Ages 12-16",
+      "price": 150,
       "schedule": "Wednesday, Friday: 2:30 PM - 4:30 PM",
       "instructor": "Matthew White"
     },
@@ -167,6 +185,7 @@
       "name": "Exploring Art History",
       "description": "Journey through the history of art! Campers will learn about famous artists and create artworks inspired by different art movements.",
       "age_group": "Ages 11-15",
+      "price": 180,
       "schedule": "Monday, Wednesday: 4:00 PM - 6:00 PM",
       "instructor": "Grace Clark"
     },
@@ -176,6 +195,7 @@
       "name": "Mosaic Marvels",
       "description": "Campers will create stunning mosaic artworks using colorful tiles and glass. Discover the beauty of this ancient art form.",
       "age_group": "Ages 9-13",
+      "price": 140,
       "schedule": "Tuesday, Thursday: 3:30 PM - 5:30 PM",
       "instructor": "Benjamin Hall"
     }
