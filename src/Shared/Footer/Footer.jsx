@@ -1,25 +1,29 @@
 const Footer = () => {
   return (
-    <section className="py-10 bg-gradient-to-b from-green-50 to-green-100 sm:pt-16 lg:pt-24">
+    <section className="py-10 bg-gradient-to-b from-green-50 to-green-100 sm:pt-16 lg:pt-24 dark:from-gray-950 dark:to-gray-950">
       <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-12 gap-y-12 gap-x-8 xl:gap-x-12">
           <div className="col-span-2 md:col-span-4 xl:pr-8">
-            <h2 className="text-4xl font-semibold font-amita">Art & Craft</h2>
-            <p className="text-base leading-relaxed text-gray-600 mt-7">
+            <h2 className="text-4xl font-semibold font-amita dark:text-cyan-400">
+              Art & Craft
+            </h2>
+            <p className="text-base leading-relaxed text-gray-600 mt-7 dark:text-white/95">
               Amet minim mollit non deserunt ullamco est sit aliqua dolor do
               amet sint. Velit officia consequat duis enim velit mollit.
             </p>
           </div>
 
           <div className="lg:col-span-3">
-            <p className="text-base font-semibold text-gray-900">Company</p>
+            <p className="text-base font-semibold text-gray-900 dark:text-teal-300">
+              Company
+            </p>
 
             <ul className="mt-6 space-y-5">
               <li>
                 <a
                   href="#"
                   title=""
-                  className="flex text-sm text-gray-800 transition-all duration-200 hover:text-orange-600 focus:text-orange-600">
+                  className="flex text-sm text-gray-800 dark:text-white transition-all duration-200 hover:text-orange-600 focus:text-orange-600">
                   {" "}
                   About{" "}
                 </a>
@@ -29,7 +33,7 @@ const Footer = () => {
                 <a
                   href="#"
                   title=""
-                  className="flex text-sm text-gray-800 transition-all duration-200 hover:text-orange-600 focus:text-orange-600">
+                  className="flex text-sm text-gray-800 transition-all dark:text-white duration-200 hover:text-orange-600 focus:text-orange-600">
                   {" "}
                   Features{" "}
                 </a>
@@ -39,7 +43,7 @@ const Footer = () => {
                 <a
                   href="#"
                   title=""
-                  className="flex text-sm text-gray-800 transition-all duration-200 hover:text-orange-600 focus:text-orange-600">
+                  className="flex text-sm text-gray-800 transition-all duration-200 hover:text-orange-600 focus:text-orange-600 dark:text-white">
                   {" "}
                   Works{" "}
                 </a>
@@ -49,7 +53,7 @@ const Footer = () => {
                 <a
                   href="#"
                   title=""
-                  className="flex text-sm text-gray-800 transition-all duration-200 hover:text-orange-600 focus:text-orange-600">
+                  className="flex text-sm text-gray-800 transition-all duration-200 hover:text-orange-600 focus:text-orange-600 dark:text-white">
                   {" "}
                   Career{" "}
                 </a>
@@ -58,14 +62,16 @@ const Footer = () => {
           </div>
 
           <div className="lg:col-span-3">
-            <p className="text-base font-semibold text-gray-900">Help</p>
+            <p className="text-base font-semibold text-gray-900 dark:text-teal-300">
+              Help
+            </p>
 
             <ul className="mt-6 space-y-4">
               <li>
                 <a
                   href="#"
                   title=""
-                  className="flex text-sm text-gray-800 transition-all duration-200 hover:text-orange-600 focus:text-orange-600">
+                  className="flex text-sm text-gray-800 transition-all duration-200 hover:text-orange-600 focus:text-orange-600 dark:text-white">
                   {" "}
                   Customer Support{" "}
                 </a>
@@ -75,7 +81,7 @@ const Footer = () => {
                 <a
                   href="#"
                   title=""
-                  className="flex text-sm text-gray-800 transition-all duration-200 hover:text-orange-600 focus:text-orange-600">
+                  className="flex text-sm text-gray-800 transition-all duration-200 hover:text-orange-600 focus:text-orange-600 dark:text-white">
                   {" "}
                   Delivery Details{" "}
                 </a>
@@ -85,7 +91,7 @@ const Footer = () => {
                 <a
                   href="#"
                   title=""
-                  className="flex text-sm text-gray-800 transition-all duration-200 hover:text-orange-600 focus:text-orange-600">
+                  className="flex text-sm text-gray-800 transition-all duration-200 hover:text-orange-600 focus:text-orange-600 dark:text-white">
                   {" "}
                   Terms & Conditions{" "}
                 </a>
@@ -95,7 +101,7 @@ const Footer = () => {
                 <a
                   href="#"
                   title=""
-                  className="flex text-sm text-gray-800 transition-all duration-200 hover:text-orange-600 focus:text-orange-600">
+                  className="flex text-sm text-gray-800 transition-all duration-200 hover:text-orange-600 focus:text-orange-600 dark:text-white">
                   {" "}
                   Privacy Policy{" "}
                 </a>
@@ -104,14 +110,16 @@ const Footer = () => {
           </div>
 
           <div className="lg:col-span-2">
-            <p className="text-base font-semibold text-gray-900">Extra Links</p>
+            <p className="text-base font-semibold text-gray-900 dark:text-teal-300">
+              Extra Links
+            </p>
 
             <ul className="mt-6 space-y-5">
               <li>
                 <a
                   href="#"
                   title=""
-                  className="flex text-sm text-gray-800 transition-all duration-200 hover:text-orange-600 focus:text-orange-600">
+                  className="flex text-sm text-gray-800 transition-all duration-200 hover:text-orange-600 focus:text-orange-600 dark:text-white">
                   {" "}
                   Customer Support{" "}
                 </a>
@@ -121,7 +129,7 @@ const Footer = () => {
                 <a
                   href="#"
                   title=""
-                  className="flex text-sm text-gray-800 transition-all duration-200 hover:text-orange-600 focus:text-orange-600">
+                  className="flex text-sm text-gray-800 transition-all duration-200 hover:text-orange-600 focus:text-orange-600 dark:text-white">
                   {" "}
                   Delivery Details{" "}
                 </a>
@@ -131,7 +139,7 @@ const Footer = () => {
                 <a
                   href="#"
                   title=""
-                  className="flex text-sm text-gray-800 transition-all duration-200 hover:text-orange-600 focus:text-orange-600">
+                  className="flex text-sm text-gray-800 transition-all duration-200 hover:text-orange-600 focus:text-orange-600 dark:text-white">
                   {" "}
                   Terms & Conditions{" "}
                 </a>
@@ -141,7 +149,7 @@ const Footer = () => {
                 <a
                   href="#"
                   title=""
-                  className="flex text-sm text-gray-800 transition-all duration-200 hover:text-orange-600 focus:text-orange-600">
+                  className="flex text-sm text-gray-800 transition-all duration-200 hover:text-orange-600 focus:text-orange-600 dark:text-white">
                   {" "}
                   Privacy Policy{" "}
                 </a>
@@ -153,8 +161,8 @@ const Footer = () => {
         <hr className="mt-16 mb-10 border-gray-200" />
 
         <div className="sm:flex sm:items-center sm:justify-between">
-          <p className="text-sm text-gray-600">
-            © Copyright 2021, All Rights Reserved by Postcraft
+          <p className="text-sm text-gray-600 dark:text-white/95">
+            © Copyright 2021, All Rights Reserved by Art & Craft
           </p>
 
           <ul className="flex items-center mt-5 space-x-3 md:order-3 sm:mt-0">
@@ -162,7 +170,7 @@ const Footer = () => {
               <a
                 href="#"
                 title=""
-                className="flex items-center justify-center text-gray-800 transition-all duration-200 bg-transparent border border-gray-300 rounded-full w-7 h-7 focus:bg-orange-600 hover:text-white focus:text-white hover:bg-orange-600 hover:border-orange-600 focus:border-orange-600">
+                className="flex items-center justify-center text-gray-800 dark:text-blue-400 transition-all duration-200 bg-transparent border border-gray-300 dark:border-amber-300 rounded-full w-7 h-7 focus:bg-orange-600 hover:text-white focus:text-white hover:bg-orange-600 hover:border-orange-600 focus:border-orange-600">
                 <svg
                   className="w-4 h-4"
                   xmlns="http://www.w3.org/2000/svg"
@@ -177,7 +185,7 @@ const Footer = () => {
               <a
                 href="#"
                 title=""
-                className="flex items-center justify-center text-gray-800 transition-all duration-200 bg-transparent border border-gray-300 rounded-full w-7 h-7 focus:bg-orange-600 hover:text-white focus:text-white hover:bg-orange-600 hover:border-orange-600 focus:border-orange-600">
+                className="flex items-center justify-center text-gray-800 dark:text-blue-400 transition-all duration-200 bg-transparent border border-gray-300 dark:border-amber-300 rounded-full w-7 h-7 focus:bg-orange-600 hover:text-white focus:text-white hover:bg-orange-600 hover:border-orange-600 focus:border-orange-600">
                 <svg
                   className="w-4 h-4"
                   xmlns="http://www.w3.org/2000/svg"
@@ -192,7 +200,7 @@ const Footer = () => {
               <a
                 href="#"
                 title=""
-                className="flex items-center justify-center text-gray-800 transition-all duration-200 bg-transparent border border-gray-300 rounded-full w-7 h-7 focus:bg-orange-600 hover:text-white focus:text-white hover:bg-orange-600 hover:border-orange-600 focus:border-orange-600">
+                className="flex items-center justify-center text-gray-800 dark:text-amber-500 transition-all duration-200 bg-transparent border border-gray-300 dark:border-cyan-500 rounded-full w-7 h-7 focus:bg-orange-600 hover:text-white focus:text-white hover:bg-orange-600 hover:border-orange-600 focus:border-orange-600">
                 <svg
                   className="w-4 h-4"
                   xmlns="http://www.w3.org/2000/svg"
@@ -209,7 +217,7 @@ const Footer = () => {
               <a
                 href="#"
                 title=""
-                className="flex items-center justify-center text-gray-800 transition-all duration-200 bg-transparent border border-gray-300 rounded-full w-7 h-7 focus:bg-orange-600 hover:text-white focus:text-white hover:bg-orange-600 hover:border-orange-600 focus:border-orange-600">
+                className="flex items-center justify-center text-gray-800 dark:text-white transition-all duration-200 bg-transparent border border-gray-300 dark:border-blue-400 rounded-full w-7 h-7 focus:bg-orange-600 hover:text-white focus:text-white hover:bg-orange-600 hover:border-orange-600 focus:border-orange-600">
                 <svg
                   className="w-4 h-4"
                   xmlns="http://www.w3.org/2000/svg"
