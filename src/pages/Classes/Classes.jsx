@@ -24,8 +24,8 @@ const Classes = () => {
         image={image}
         title="All of Our Classes"
         subTitle="Art & Craft / Classes"></MiniHero>
-      <div className="bg-yellow-400/20">
-        <h2 className="text-4xl font-amita font-bold text-center pt-20 text-rose-500">
+      <div className="bg-yellow-400/20 dark:bg-gray-950">
+        <h2 className="text-4xl font-amita font-bold text-center pt-20 text-rose-500 dark:text-cyan-300">
           Summer 2023
         </h2>
 
