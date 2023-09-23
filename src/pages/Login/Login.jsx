@@ -14,7 +14,7 @@ const Login = () => {
               <h2 className="text-3xl font-bold font-amaranth leading-tight text-black dark:text-white/95 sm:text-4xl text-center">
                 Log in to Art & Craft
               </h2>
-              <p className="mt-2 text-base text-gray-600 text-center dark:text-white">
+              <p className="mt-2 text-base text-gray-600 text-center dark:text-white font-amaranth">
                 Don’t have an account?{" "}
                 <Link
                   to="/register"
@@ -26,7 +26,7 @@ const Login = () => {
               <form className="mt-8">
                 <div className="space-y-5">
                   <div>
-                    <label className="text-base font-medium dark:text-white/95 text-gray-900">
+                    <label className="text-base font-medium dark:text-white/95 text-gray-900 font-amaranth">
                       {" "}
                       Email address{" "}
                     </label>
@@ -51,14 +51,14 @@ const Login = () => {
                         type="email"
                         name=""
                         placeholder="Enter email to get started"
-                        className="block w-full py-4 pl-10 pr-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600"
+                        className="block w-full py-4 pl-10 pr-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600 font-amaranth"
                       />
                     </div>
                   </div>
 
                   <div>
                     <div className="flex items-center justify-between">
-                      <label className="text-base font-medium dark:text-white/95 text-gray-900">
+                      <label className="text-base font-medium dark:text-white/95 text-gray-900 font-amaranth">
                         {" "}
                         Password{" "}
                       </label>
@@ -66,7 +66,7 @@ const Login = () => {
                       <a
                         href="#"
                         title=""
-                        className="text-sm font-medium text-blue-600 transition-all duration-200 hover:text-blue-700 focus:text-blue-700 hover:underline dark:text-cyan-300">
+                        className="text-sm font-medium text-blue-600 transition-all duration-200 hover:text-blue-700 focus:text-blue-700 hover:underline dark:text-cyan-300 font-amaranth">
                         {" "}
                         Forgot password?{" "}
                       </a>
@@ -92,7 +92,7 @@ const Login = () => {
                         type="password"
                         name=""
                         placeholder="Enter your password"
-                        className="block w-full py-4 pl-10 pr-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600"
+                        className="block w-full py-4 pl-10 pr-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600 font-amaranth"
                       />
                     </div>
                   </div>
