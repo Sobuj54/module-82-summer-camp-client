@@ -1,6 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import "./NavBar.css";
 import { useState } from "react";
+import SwitchTheme from "../../components/SwitchTheme/SwitchTheme";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -54,7 +55,7 @@ const NavBar = () => {
   );
 
   return (
-    <section className="bg-white bg-opacity-30">
+    <section className="bg-white dark:bg-slate-900 bg-opacity-30">
       <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
         <div className="flex items-center justify-between h-16 lg:h-20">
           <div className="flex-shrink-0">
@@ -108,13 +109,18 @@ const NavBar = () => {
             {navLinks}
           </div>
 
-          <Link
-            to="/login"
-            onClick={openAndClose}
-            className="hidden font-amaranth lg:inline-flex items-center justify-center px-5 py-2.5 text-base transition-all duration-200 hover:bg-yellow-300 hover:text-black focus:text-black focus:bg-yellow-300 font-semibold text-white bg-black rounded-full">
-            {" "}
-            Login{" "}
-          </Link>
+          <div className="flex items-center gap-7">
+            {/* theme switcher component */}
+            <SwitchTheme></SwitchTheme>
+
+            <Link
+              to="/login"
+              onClick={openAndClose}
+              className="hidden font-amaranth lg:inline-flex items-center justify-center px-5 py-2.5 text-base transition-all duration-200 hover:bg-yellow-300 hover:text-black focus:text-black focus:bg-yellow-300 font-semibold text-white bg-black rounded-full">
+              {" "}
+              Login{" "}
+            </Link>
+          </div>
 
           {/* nav links for mobile devices */}
           <div
