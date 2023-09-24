@@ -4,6 +4,7 @@ import MidHero from "../MidHero/MidHero";
 import Testimonials from "../Testimonials/Testimonials";
 import Features from "../Features/Features";
 import PopularClasses from "../PopularClasses/PopularClasses";
+import PopularInstructors from "../PopularInstructors/PopularInstructors";
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <Hero></Hero>
       <PopularClasses></PopularClasses>
       <Features></Features>
+      <PopularInstructors></PopularInstructors>
       <Testimonials></Testimonials>
       <MidHero></MidHero>
     </>

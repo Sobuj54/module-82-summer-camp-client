@@ -7,7 +7,7 @@ const ClassCard = ({ Class }) => {
   const { img, name, age_group, schedule, price, available_seats } = Class;
 
   return (
-    <div className="border-2 border-amber-400 dark:border-emerald-300 p-5 rounded-lg relative shadow-xl shadow-yellow-400 dark:shadow-sky-400 mt-10">
+    <div className="border-2 border-amber-400 dark:border-emerald-300 p-5 rounded-lg relative shadow-xl shadow-yellow-400 dark:shadow-sky-400 mt-5 md:mt-10">
       <img
         src={img}
         alt={name}

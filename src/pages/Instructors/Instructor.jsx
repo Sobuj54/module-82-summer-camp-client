@@ -4,7 +4,7 @@ const Instructor = ({ instructor }) => {
   const { name, img, bio, classes_taught, email } = instructor;
 
   return (
-    <div className="border-2 p-5 rounded-lg border-lime-400 dark:border-emerald-400 mt-7 bg-lime-400/40 dark:bg-gray-900 shadow-xl shadow-lime-500 dark:shadow-emerald-400">
+    <div className="border-2 p-5 rounded-lg border-lime-400 dark:border-emerald-400 mt-5 md:mt-10 bg-lime-400/40 dark:bg-gray-900 shadow-xl shadow-lime-500 dark:shadow-emerald-400">
       <div>
         <img
           src={img}
