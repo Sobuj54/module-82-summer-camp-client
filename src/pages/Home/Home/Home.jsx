@@ -3,6 +3,7 @@ import Hero from "../Hero/Hero";
 import MidHero from "../MidHero/MidHero";
 import Testimonials from "../Testimonials/Testimonials";
 import Features from "../Features/Features";
+import PopularClasses from "../PopularClasses/PopularClasses";
 
 const Home = () => {
   return (
@@ -11,9 +12,10 @@ const Home = () => {
         <title>Art & Craft | Home</title>
       </Helmet>
       <Hero></Hero>
-      <MidHero></MidHero>
-      <Testimonials></Testimonials>
+      <PopularClasses></PopularClasses>
       <Features></Features>
+      <Testimonials></Testimonials>
+      <MidHero></MidHero>
     </>
   );
 };
