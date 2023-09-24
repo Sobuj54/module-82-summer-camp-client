@@ -1,0 +1,163 @@
+[
+    {
+      "id": 1,
+      "name": "Emily Anderson",
+      "img": "https://img.freepik.com/free-photo/attractive-brunette-girl-coat-dreamily-looking-camera-beautiful-city-park_574295-2605.jpg?size=626&ext=jpg",
+      "bio": "Emily is a passionate artist with a background in fine arts. She loves inspiring young minds to express themselves through painting.",
+      "classes_taught": "Painting Paradise",
+      "email": "emily.anderson@example.com"
+    },
+    {
+      "id": 2,
+      "name": "David Turner",
+      "img": "https://img.freepik.com/free-photo/waist-up-portrait-handsome-serious-unshaven-male-keeps-hands-together-dressed-dark-blue-shirt-has-talk-with-interlocutor-stands-against-white-wall-self-confident-man-freelancer_273609-16320.jpg?size=626&ext=jpg",
+      "bio": "David is an experienced sculptor and art teacher. He enjoys helping students bring their creative ideas to life in three dimensions.",
+      "classes_taught": "Sculpture Sensations",
+      "email": "david.turner@example.com"
+    },
+    {
+      "id": 3,
+      "name": "Olivia Mitchell",
+      "img": "https://img.freepik.com/free-photo/business-woman-standing-full-length-white-background_231208-2026.jpg?size=626&ext=jpg",
+      "bio": "Olivia has a knack for crafts and enjoys sharing her expertise. She believes in the therapeutic and expressive power of crafting.",
+      "classes_taught": "Crafty Creations",
+      "email": "olivia.mitchell@example.com"
+    },
+    {
+      "id": 4,
+      "name": "Michael Garcia",
+      "img": "https://img.freepik.com/free-photo/portrait-young-businesswoman-holding-eyeglasses-hand-against-gray-backdrop_23-2148029483.jpg?size=626&ext=jpg",
+      "bio": "Michael is a dedicated art teacher with a focus on nurturing teens' artistic talents. He helps them build strong portfolios for the future.",
+      "classes_taught": "Art Adventures for Teens",
+      "email": "michael.garcia@example.com"
+    },
+    {
+      "id": 5,
+      "name": "Sophia Walker",
+      "img": "https://img.freepik.com/free-photo/girl_23-2148168128.jpg?size=626&ext=jpg",
+      "bio": "Sophia is a nature enthusiast who combines her love for art and the outdoors in the Outdoor Sketching class. She believes in the inspiration nature provides.",
+      "classes_taught": "Outdoor Sketching",
+      "email": "sophia.walker@example.com"
+    },
+    {
+      "id": 6,
+      "name": "Daniel Smith",
+      "img": "https://img.freepik.com/free-photo/man-isolated-showing-emotions-end-gestures_1303-30095.jpg?size=626&ext=jpg",
+      "bio": "Daniel is a skilled potter known for his intricate pottery creations. He enjoys teaching young artists the art of pottery and craftsmanship.",
+      "classes_taught": "Pottery Perfection",
+      "email": "daniel.smith@example.com"
+    },
+    {
+      "id": 7,
+      "name": "Ella Roberts",
+      "img": "https://img.freepik.com/free-photo/pretty-smiling-joyfully-female-with-fair-hair-dressed-casually-looking-with-satisfaction_176420-15187.jpg?size=626&ext=jpg",
+      "bio": "Ella is a digital art wizard who guides students in exploring the digital realm. She encourages creativity and innovation in the digital arts.",
+      "classes_taught": "Digital Art Discovery",
+      "email": "ella.roberts@example.com"
+    },
+    {
+      "id": 8,
+      "name": "Liam Turner",
+      "img": "https://img.freepik.com/free-photo/cheerful-indian-businessman-smiling-closeup-portrait-jobs-career-campaign_53876-129417.jpg?size=626&ext=jpg",
+      "bio": "Liam is a talented writer with a passion for storytelling. He nurtures young writers and helps them craft their unique narratives.",
+      "classes_taught": "Creative Writing Workshop",
+      "email": "liam.turner@example.com"
+    },
+    {
+      "id": 9,
+      "name": "Nina Wilson",
+      "img": "https://img.freepik.com/free-photo/attractive-lady-red-sweater-walks-along-avenue-with-sakura-drinks-coffee-beautiful-woman-beret-smiling-enjoying-tea-outside_197531-17871.jpg?size=626&ext=jpg",
+      "bio": "Nina is a mixed media artist who encourages experimentation and self-expression. She believes that art has no boundaries.",
+      "classes_taught": "Mixed Media Magic",
+      "email": "nina.wilson@example.com"
+    },
+    {
+      "id": 10,
+      "name": "James Baker",
+      "img": "https://img.freepik.com/free-photo/handsome-bearded-guy-posing-against-white-wall_273609-20597.jpg?size=626&ext=jpg",
+      "bio": "James is a nature lover and photographer. He guides campers in capturing the beauty of the natural world through their lenses.",
+      "classes_taught": "Nature Photography",
+      "email": "james.baker@example.com"
+    },
+    {
+      "id": 11,
+      "name": "Isabella Green",
+      "img": "https://img.freepik.com/free-photo/woman-with-crossed-arms_23-2147574177.jpg?size=626&ext=jpg",
+      "bio": "Isabella is a theater enthusiast who helps campers explore their dramatic talents. She fosters confidence and teamwork through drama.",
+      "classes_taught": "Drama and Theater Arts",
+      "email": "isabella.green@example.com"
+    },
+    {
+      "id": 12,
+      "name": "Lucas Martinez",
+      "img": "https://img.freepik.com/free-photo/confident-young-businessman-suit-standing-with-arms-folded_171337-18599.jpg?size=626&ext=jpg",
+      "bio": "Lucas is a culinary artist who teaches campers the art of cooking. He believes in the joy of creating delicious dishes.",
+      "classes_taught": "Culinary Creations",
+      "email": "lucas.martinez@example.com"
+    },
+    {
+      "id": 13,
+      "name": "Emma Johnson",
+      "img": "https://img.freepik.com/premium-photo/woman-blue-blazer-holds-tablet-her-hands_889227-11422.jpg?size=626&ext=jpg",
+      "bio": "Emma is a music maestro who guides students in exploring the world of music. She encourages creativity in musical expression.",
+      "classes_taught": "Music Maestros",
+      "email": "emma.johnson@example.com"
+    },
+    {
+      "id": 14,
+      "name": "Ethan Collins",
+      "img": "https://img.freepik.com/free-photo/portrait-successful-man-having-stubble-posing-with-broad-smile-keeping-arms-folded_171337-1267.jpg?size=626&ext=jpg",
+      "bio": "Ethan specializes in printmaking and enjoys introducing campers to the world of printmaking techniques and artistic exploration.",
+      "classes_taught": "Printmaking Explorations",
+      "email": "ethan.collins@example.com"
+    },
+    {
+      "id": 15,
+      "name": "Ava Smith",
+      "img": "https://img.freepik.com/free-photo/front-view-elegant-businesswoman-holding-clipboard-with-copy-space_23-2148788842.jpg?size=626&ext=jpg",
+      "bio": "Ava is a textile arts enthusiast who guides campers in creating beautiful textile designs and exploring the world of fabric art.",
+      "classes_taught": "Textile Arts Adventure",
+      "email": "ava.smith@example.com"
+    },
+    {
+      "id": 16,
+      "name": "Noah Turner",
+      "img": "https://img.freepik.com/free-photo/handsome-bearded-guy-looking-wearing-outdoor-clothes_176420-18777.jpg?size=626&ext=jpg",
+      "bio": "Noah is a skilled cartoonist and comic artist who helps campers unleash their inner comic artists through character design and storytelling.",
+      "classes_taught": "Cartooning and Comics",
+      "email": "noah.turner@example.com"
+    },
+    {
+      "id": 17,
+      "name": "Lily Davis",
+      "img": "https://img.freepik.com/free-photo/young-attractive-emotional-girl-business-style-clothes_78826-2303.jpg?size=626&ext=jpg",
+      "bio": "Lily combines art and science in a creative fusion. She inspires campers to explore the intersection of art and scientific discovery.",
+      "classes_taught": "Science and Art Fusion",
+      "email": "lily.davis@example.com"
+    },
+    {
+      "id": 18,
+      "name": "Matthew White",
+      "img": "https://img.freepik.com/free-photo/happy-good-looking-man-glasses-pointing-finger-left_176420-21192.jpg?size=626&ext=jpg",
+      "bio": "Matthew specializes in photography editing and guides campers in enhancing their photography skills through digital manipulation.",
+      "classes_taught": "Photography Editing",
+      "email": "matthew.white@example.com"
+    },
+    {
+      "id": 19,
+      "name": "Grace Clark",
+      "img": "https://img.freepik.com/free-photo/businesswoman-posing_23-2148142829.jpg?size=626&ext=jpg",
+      "bio": "Grace is an art history enthusiast who takes campers on a journey through art's rich history and encourages them to create inspired artworks.",
+      "classes_taught": "Exploring Art History",
+      "email": "grace.clark@example.com"
+    },
+    {
+      "id": 20,
+      "name": "Benjamin Hall",
+      "img": "https://img.freepik.com/free-photo/indoor-picture-cheerful-handsome-young-man-having-folded-hands-looking-directly-smiling-sincerely-wearing-casual-clothes_176532-10257.jpg?size=626&ext=jpg",
+      "bio": "Benjamin is a mosaic artist who teaches campers the ancient art of creating stunning mosaics using colorful tiles and glass.",
+      "classes_taught": "Mosaic Marvels",
+      "email": "benjamin.hall@example.com"
+    }
+  ]
+  

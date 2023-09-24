@@ -15,7 +15,7 @@ const ClassesModal = ({ Class, isModalOpen, setIsModalOpen }) => {
   } = Class;
 
   return (
-    <div className="fixed top-1/2 -translate-y-1/2 w-10/12 left-1/2 -translate-x-1/2 z-10 bg-gray-100 rounded-lg">
+    <div className="fixed top-1/2 -translate-y-1/2 w-10/12 left-1/2 -translate-x-1/2 z-10 bg-gray-100 dark:bg-slate-900 rounded-3xl">
       <button
         onClick={() => setIsModalOpen(!isModalOpen)}
         className="text-white text-2xl absolute top-0 right-0 bg-red-500 rounded-full h-6 md:h-10 w-6 md:w-10 flex items-center justify-center">
@@ -23,7 +23,7 @@ const ClassesModal = ({ Class, isModalOpen, setIsModalOpen }) => {
       </button>
 
       <div className="grid grid-cols-1 md:grid-cols-2 p-5 lg:p-12 items-center justify-center gap-5">
-        <div className="relative">
+        <div className="relative shadow-xl dark:shadow-teal-300 rounded-lg">
           <img
             src={img}
             alt={name}
@@ -34,7 +34,7 @@ const ClassesModal = ({ Class, isModalOpen, setIsModalOpen }) => {
           </h4>
         </div>
         <div className="flex flex-col items-center justify-center">
-          <h2 className="text-center dark:text-white/95 font-bold font-amaranth mt-4 text-xl md:text-2xl">
+          <h2 className="text-center dark:text-cyan-300 font-bold font-amaranth mt-4 text-xl md:text-2xl">
             {name}
           </h2>
           <h3 className="text-center dark:text-white/95 font-semibold font-amaranth my-4 text-base md:text-lg">
