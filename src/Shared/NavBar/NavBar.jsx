@@ -2,8 +2,11 @@ import { Link, NavLink } from "react-router-dom";
 import "./NavBar.css";
 import { useState } from "react";
 import SwitchTheme from "../../components/SwitchTheme/SwitchTheme";
+import useContextApi from "../../Hooks/useContextApi";
 
 const NavBar = () => {
+  // this is custom hook for context api
+  const { user } = useContextApi();
   const [isOpen, setIsOpen] = useState(false);
 
   const openAndClose = () => {
@@ -114,13 +117,23 @@ const NavBar = () => {
             {/* theme switcher component */}
             <SwitchTheme></SwitchTheme>
 
-            <Link
-              to="/login"
-              onClick={openAndClose}
-              className="font-amaranth inline-flex items-center justify-center px-5 py-2.5 text-sm sm:text-base transition-all duration-200 hover:bg-yellow-300 dark:hover:bg-yellow-300 hover:text-black focus:text-black focus:bg-yellow-300 dark:focus:bg-yellow-300 font-semibold text-white dark:text-black bg-black dark:bg-white rounded-full">
-              {" "}
-              Login{" "}
-            </Link>
+            {user ? (
+              <Link
+                to="/login"
+                onClick={openAndClose}
+                className="font-amaranth inline-flex items-center justify-center px-5 py-2.5 text-sm sm:text-base transition-all duration-200 hover:bg-yellow-300 dark:hover:bg-yellow-300 hover:text-black focus:text-black focus:bg-yellow-300 dark:focus:bg-yellow-300 font-semibold text-white dark:text-black bg-black dark:bg-white rounded-full">
+                {" "}
+                Logout{" "}
+              </Link>
+            ) : (
+              <Link
+                to="/login"
+                onClick={openAndClose}
+                className="font-amaranth inline-flex items-center justify-center px-5 py-2.5 text-sm sm:text-base transition-all duration-200 hover:bg-yellow-300 dark:hover:bg-yellow-300 hover:text-black focus:text-black focus:bg-yellow-300 dark:focus:bg-yellow-300 font-semibold text-white dark:text-black bg-black dark:bg-white rounded-full">
+                {" "}
+                Login{" "}
+              </Link>
+            )}
           </div>
 
           {/* nav links for mobile devices */}

@@ -1,8 +1,25 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import icon from "../../assets/register/web-svgrepo-com.svg";
+import { useForm } from "react-hook-form";
+import useContextApi from "../../Hooks/useContextApi";
 
 const Register = () => {
+  const { createUser } = useContextApi();
+  const { register, handleSubmit } = useForm();
+
+  const onSubmit = (data) => {
+    const { name, email, password, photo } = data;
+    console.log(data);
+    // create user with email password
+    createUser(email, password)
+      .then((result) => {
+        const newUser = result.user;
+        console.log(user);
+      })
+      .catch((error) => console.log(error));
+  };
+
   return (
     <>
       <Helmet>
@@ -24,7 +41,7 @@ const Register = () => {
                 </Link>
               </p>
 
-              <form action="#" method="POST" className="mt-8">
+              <form onSubmit={handleSubmit(onSubmit)} className="mt-8">
                 <div className="space-y-5">
                   <div>
                     <label className="text-base font-medium text-gray-900 dark:text-white/95 font-amaranth">
@@ -50,7 +67,8 @@ const Register = () => {
 
                       <input
                         type="text"
-                        name=""
+                        {...register("name")}
+                        required
                         placeholder="Enter your full name"
                         className="block w-full py-4 pl-10 pr-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none font-amaranth focus:border-blue-600 focus:bg-white caret-blue-600"
                       />
@@ -81,7 +99,8 @@ const Register = () => {
 
                       <input
                         type="email"
-                        name=""
+                        {...register("email")}
+                        required
                         placeholder="Enter email to get started"
                         className="block w-full py-4 font-amaranth pl-10 pr-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600"
                       />
@@ -112,7 +131,8 @@ const Register = () => {
 
                       <input
                         type="password"
-                        name=""
+                        {...register("password")}
+                        required
                         placeholder="Enter your password"
                         className="block w-full py-4 pl-10 pr-4 text-black font-amaranth placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600"
                       />
@@ -132,7 +152,8 @@ const Register = () => {
 
                       <input
                         type="url"
-                        name=""
+                        {...register("photo")}
+                        required
                         placeholder="Enter your photo url"
                         className="block w-full py-4 pl-10 pr-4 text-black placeholder-gray-500 font-amaranth transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600"
                       />
