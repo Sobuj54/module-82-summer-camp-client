@@ -1,7 +1,24 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import useContextApi from "../../Hooks/useContextApi";
+import { useForm } from "react-hook-form";
 
 const Login = () => {
+  const { logIn } = useContextApi();
+  const { register, handleSubmit } = useForm();
+
+  const onSubmit = (data) => {
+    const { email, password } = data;
+
+    // login
+    logIn(email, password)
+      .then((result) => {
+        const currentUser = result.user;
+        console.log(currentUser);
+      })
+      .catch((error) => console.log(error));
+  };
+
   return (
     <>
       <Helmet>
@@ -23,7 +40,7 @@ const Login = () => {
                 </Link>
               </p>
 
-              <form className="mt-8">
+              <form onSubmit={handleSubmit(onSubmit)} className="mt-8">
                 <div className="space-y-5">
                   <div>
                     <label className="text-base font-medium dark:text-white/95 text-gray-900 font-amaranth">
@@ -49,7 +66,8 @@ const Login = () => {
 
                       <input
                         type="email"
-                        name=""
+                        {...register("email")}
+                        required
                         placeholder="Enter email to get started"
                         className="block w-full py-4 pl-10 pr-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600 font-amaranth"
                       />
@@ -90,7 +108,8 @@ const Login = () => {
 
                       <input
                         type="password"
-                        name=""
+                        {...register("password")}
+                        required
                         placeholder="Enter your password"
                         className="block w-full py-4 pl-10 pr-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600 font-amaranth"
                       />
