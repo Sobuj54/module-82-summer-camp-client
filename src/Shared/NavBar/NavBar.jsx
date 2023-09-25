@@ -136,7 +136,6 @@ const NavBar = () => {
             ) : (
               <Link
                 to="/login"
-                onClick={openAndClose}
                 className="font-amaranth inline-flex items-center justify-center px-5 py-2.5 text-sm sm:text-base transition-all duration-200 hover:bg-yellow-300 dark:hover:bg-yellow-300 hover:text-black focus:text-black focus:bg-yellow-300 dark:focus:bg-yellow-300 font-semibold text-white dark:text-black bg-black dark:bg-white rounded-full">
                 {" "}
                 Login{" "}
@@ -154,6 +153,7 @@ const NavBar = () => {
             }`}>
             {navLinks}
 
+            {/* for mobile */}
             <div className="flex flex-col sm:flex-row items-center gap-7 mt-4">
               {/* theme switcher component */}
               <SwitchTheme></SwitchTheme>
@@ -169,7 +169,6 @@ const NavBar = () => {
               ) : (
                 <Link
                   to="/login"
-                  onClick={openAndClose}
                   className="font-amaranth inline-flex items-center justify-center px-5 py-2.5 text-sm sm:text-base transition-all duration-200 hover:bg-yellow-300 dark:hover:bg-yellow-300 hover:text-black focus:text-black focus:bg-yellow-300 dark:focus:bg-yellow-300 font-semibold text-white dark:text-black bg-black dark:bg-white rounded-full">
                   {" "}
                   Login{" "}

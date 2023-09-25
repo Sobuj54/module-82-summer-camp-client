@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import useContextApi from "../../Hooks/useContextApi";
 
 const Register = () => {
-  const { createUser } = useContextApi();
+  const { createUser, updateUserProfile } = useContextApi();
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
@@ -13,9 +13,10 @@ const Register = () => {
     console.log(data);
     // create user with email password
     createUser(email, password)
-      .then((result) => {
-        const newUser = result.user;
-        console.log(newUser);
+      .then(() => {
+        updateUserProfile(name, photo)
+          .then(() => {})
+          .catch((error) => console.log(error));
       })
       .catch((error) => console.log(error));
   };
