@@ -3,9 +3,8 @@ import App from "../App";
 import Home from "../pages/Home/Home/Home";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
-// import Classes from "../pages/Classes/Classes";
 import { Suspense, lazy } from "react";
-// import Instructors from "../pages/Instructors/Instructors";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 const Classes = lazy(() => import("../pages/Classes/Classes"));
 const Instructors = lazy(() => import("../pages/Instructors/Instructors"));
@@ -14,6 +13,7 @@ const Router = createBrowserRouter([
   {
     path: "/",
     element: <App></App>,
+    errorElement:<ErrorPage></ErrorPage>,
     children: [
       { path: "/", element: <Home></Home> },
       {
