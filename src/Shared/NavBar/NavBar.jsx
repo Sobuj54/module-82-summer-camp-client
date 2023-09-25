@@ -6,11 +6,19 @@ import useContextApi from "../../Hooks/useContextApi";
 
 const NavBar = () => {
   // this is custom hook for context api
-  const { user } = useContextApi();
+  const { user, logOut } = useContextApi();
   const [isOpen, setIsOpen] = useState(false);
 
   const openAndClose = () => {
     setIsOpen(!isOpen);
+  };
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        console.log("logged Out");
+      })
+      .catch((error) => console.log(error));
   };
 
   const navLinks = (
@@ -120,7 +128,7 @@ const NavBar = () => {
             {user ? (
               <Link
                 to="/login"
-                onClick={openAndClose}
+                onClick={handleLogOut}
                 className="font-amaranth inline-flex items-center justify-center px-5 py-2.5 text-sm sm:text-base transition-all duration-200 hover:bg-yellow-300 dark:hover:bg-yellow-300 hover:text-black focus:text-black focus:bg-yellow-300 dark:focus:bg-yellow-300 font-semibold text-white dark:text-black bg-black dark:bg-white rounded-full">
                 {" "}
                 Logout{" "}
@@ -147,15 +155,26 @@ const NavBar = () => {
             {navLinks}
 
             <div className="flex flex-col sm:flex-row items-center gap-7 mt-4">
+              {/* theme switcher component */}
               <SwitchTheme></SwitchTheme>
 
-              <Link
-                to="/login"
-                onClick={openAndClose}
-                className="font-amaranth inline-flex items-center justify-center px-5 py-2.5 text-sm sm:text-base transition-all duration-200 hover:bg-yellow-300 dark:hover:bg-yellow-300 hover:text-black focus:text-black focus:bg-yellow-300 dark:focus:bg-yellow-300 font-semibold text-white dark:text-black bg-black dark:bg-white rounded-full">
-                {" "}
-                Login{" "}
-              </Link>
+              {user ? (
+                <Link
+                  to="/login"
+                  onClick={handleLogOut}
+                  className="font-amaranth inline-flex items-center justify-center px-5 py-2.5 text-sm sm:text-base transition-all duration-200 hover:bg-yellow-300 dark:hover:bg-yellow-300 hover:text-black focus:text-black focus:bg-yellow-300 dark:focus:bg-yellow-300 font-semibold text-white dark:text-black bg-black dark:bg-white rounded-full">
+                  {" "}
+                  Logout{" "}
+                </Link>
+              ) : (
+                <Link
+                  to="/login"
+                  onClick={openAndClose}
+                  className="font-amaranth inline-flex items-center justify-center px-5 py-2.5 text-sm sm:text-base transition-all duration-200 hover:bg-yellow-300 dark:hover:bg-yellow-300 hover:text-black focus:text-black focus:bg-yellow-300 dark:focus:bg-yellow-300 font-semibold text-white dark:text-black bg-black dark:bg-white rounded-full">
+                  {" "}
+                  Login{" "}
+                </Link>
+              )}
             </div>
           </div>
         </div>
