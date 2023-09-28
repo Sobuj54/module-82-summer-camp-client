@@ -2,6 +2,8 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import useContextApi from "../../Hooks/useContextApi";
 import { useForm } from "react-hook-form";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const { logIn, googleLogIn } = useContextApi();
@@ -22,12 +24,12 @@ const Login = () => {
   // google log in
   const handleGoogleLogIn = () => {
     googleLogIn()
-      .then((result) => {
-        const currentUser = result.user;
-        console.log(currentUser);
-      })
+      .then(() => {})
       .catch((error) => {
         console.log(error);
+        toast.error("Something went wrong !", {
+          position: toast.POSITION.TOP_CENTER,
+        });
       });
   };
 
@@ -159,6 +161,7 @@ const Login = () => {
           </div>
         </div>
       </section>
+      <ToastContainer />
     </>
   );
 };

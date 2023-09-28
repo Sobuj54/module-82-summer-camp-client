@@ -4,6 +4,7 @@ import Home from "../pages/Home/Home/Home";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import { Suspense, lazy } from "react";
+import Dashboard from "../Dashboard/Dashboard";
 
 const Classes = lazy(() => import("../pages/Classes/Classes"));
 const Instructors = lazy(() => import("../pages/Instructors/Instructors"));
@@ -78,6 +79,10 @@ const Router = createBrowserRouter([
         element: <Register></Register>,
       },
     ],
+  },
+  {
+    path: "dashboard",
+    element: <Dashboard></Dashboard>,
   },
 ]);
 

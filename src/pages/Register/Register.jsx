@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import icon from "../../assets/register/web-svgrepo-com.svg";
 import { useForm } from "react-hook-form";
 import useContextApi from "../../Hooks/useContextApi";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Register = () => {
   const { createUser, updateUserProfile, googleLogIn } = useContextApi();
@@ -23,12 +25,12 @@ const Register = () => {
 
   const handleGoogleRegister = () => {
     googleLogIn()
-      .then((result) => {
-        const currentUser = result.user;
-        console.log(currentUser);
-      })
+      .then(() => {})
       .catch((error) => {
         console.log(error);
+        toast.error("Something went wrong !", {
+          position: toast.POSITION.TOP_CENTER,
+        });
       });
   };
 
@@ -220,6 +222,7 @@ const Register = () => {
           </div>
         </div>
       </section>
+      <ToastContainer />
     </>
   );
 };
