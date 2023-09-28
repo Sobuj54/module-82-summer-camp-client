@@ -54,7 +54,7 @@ const NavBar = () => {
       </NavLink>
 
       <NavLink
-        to="/dashboard"
+        to="/dashboard/dashboardHome"
         onClick={openAndClose}
         className={`${({ isActive }) => {
           isActive ? "active" : "";

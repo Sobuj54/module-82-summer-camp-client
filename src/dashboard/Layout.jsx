@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import Sidebar from "./Sidebar";
 import { Outlet } from "react-router-dom";
 
 const Layout = () => {
+  const [isCollapsed, setIsCollapsed] = useState(false);
   return (
     <div>
-      <Sidebar></Sidebar>
-      <Outlet />
+      <Sidebar
+        isCollapsed={isCollapsed}
+        setIsCollapsed={setIsCollapsed}></Sidebar>
+      <Outlet context={[isCollapsed]} />
     </div>
   );
 };

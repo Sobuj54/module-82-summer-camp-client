@@ -5,6 +5,9 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import { Suspense, lazy } from "react";
 import Layout from "../dashboard/Layout";
+import Dashboard from "../Dashboard/Dashboard";
+import Users from "../dashboard/Users";
+import ManageClasses from "../dashboard/ManageClasses";
 
 const Classes = lazy(() => import("../pages/Classes/Classes"));
 const Instructors = lazy(() => import("../pages/Instructors/Instructors"));
@@ -83,6 +86,20 @@ const Router = createBrowserRouter([
   {
     path: "dashboard",
     element: <Layout></Layout>,
+    children: [
+      {
+        path: "dashboardHome",
+        element: <Dashboard></Dashboard>,
+      },
+      {
+        path: "users",
+        element: <Users></Users>,
+      },
+      {
+        path: "manageClasses",
+        element: <ManageClasses></ManageClasses>,
+      },
+    ],
   },
 ]);
 

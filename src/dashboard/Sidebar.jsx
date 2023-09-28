@@ -4,15 +4,14 @@ import {
   faChevronLeft,
   faCubes,
   faHouse,
+  faListCheck,
   faUsers,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import { Link, NavLink } from "react-router-dom";
 
-const Sidebar = () => {
-  const [isCollapsed, setIsCollapsed] = useState(false);
-
+const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
   const handleSidebar = () => {
     setIsCollapsed(!isCollapsed);
   };
@@ -48,20 +47,26 @@ const Sidebar = () => {
           to="/"
           className="text-lg font-sans dark:text-white flex items-center">
           <FontAwesomeIcon icon={faHouse} className="mr-5 text-xl" />{" "}
-          <span className={`${isCollapsed && `hidden`}`}>Home</span>
+          <span className={` ${isCollapsed && `hidden`}`}>Home</span>
         </Link>
-        <Link className="text-lg font-sans dark:text-white flex items-center">
+        <NavLink
+          to="/dashboard/dashboardHome"
+          className="text-lg font-sans dark:text-white flex items-center">
           <FontAwesomeIcon icon={faCubes} className="mr-5 text-xl" />{" "}
-          <span className={`${isCollapsed && `hidden`}`}>Dashboard</span>
-        </Link>
-        <Link className="text-lg font-sans dark:text-white flex items-center">
-          <FontAwesomeIcon icon={faCartShopping} className="mr-5 text-xl" />{" "}
-          <span className={`${isCollapsed && `hidden`}`}>Orders</span>
-        </Link>
-        <Link className="text-lg font-sans dark:text-white flex items-center">
+          <span className={` ${isCollapsed && `hidden`}`}>Dashboard</span>
+        </NavLink>
+        <NavLink
+          to="/dashboard/manageClasses"
+          className="text-lg font-sans dark:text-white flex items-center">
+          <FontAwesomeIcon icon={faListCheck} className="mr-5 text-xl" />{" "}
+          <span className={`${isCollapsed && `hidden`}`}>Manage Classes</span>
+        </NavLink>
+        <NavLink
+          to="/dashboard/users"
+          className="text-lg font-sans dark:text-white flex items-center">
           <FontAwesomeIcon icon={faUsers} className="mr-5 text-xl" />{" "}
-          <span className={`${isCollapsed && `hidden`}`}>Users</span>
-        </Link>
+          <span className={`${isCollapsed && `hidden`}`}>Manage Users</span>
+        </NavLink>
       </div>
     </div>
   );
