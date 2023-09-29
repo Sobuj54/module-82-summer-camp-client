@@ -8,6 +8,9 @@ import Layout from "../dashboard/Layout";
 import Dashboard from "../Dashboard/Dashboard";
 import Users from "../dashboard/Users";
 import ManageClasses from "../dashboard/ManageClasses";
+import StudentDashboard from "../dashboard/StudentDashboard/StudentDashboard";
+import SelectedClasses from "../dashboard/StudentDashboard/SelectedClasses";
+import EnrolledClasses from "../dashboard/StudentDashboard/EnrolledClasses";
 
 const Classes = lazy(() => import("../pages/Classes/Classes"));
 const Instructors = lazy(() => import("../pages/Instructors/Instructors"));
@@ -87,6 +90,19 @@ const Router = createBrowserRouter([
     path: "dashboard",
     element: <Layout></Layout>,
     children: [
+      {
+        path: "studentDashboard",
+        element: <StudentDashboard></StudentDashboard>,
+      },
+      {
+        path: "selectedClasses",
+        element: <SelectedClasses></SelectedClasses>,
+      },
+      {
+        path: "enrolledClasses",
+        element: <EnrolledClasses></EnrolledClasses>,
+      },
+      // admin
       {
         path: "dashboardHome",
         element: <Dashboard></Dashboard>,

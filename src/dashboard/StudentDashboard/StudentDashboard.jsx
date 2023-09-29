@@ -2,21 +2,22 @@ import React from "react";
 import { Helmet } from "react-helmet-async";
 import { useOutletContext } from "react-router-dom";
 
-const Dashboard = () => {
+const StudentDashboard = () => {
   const [isCollapsed] = useOutletContext();
+
   return (
     <>
       <Helmet>
-        <title>Admin | Dashboard</title>
+        <title>Student Dashboard</title>
       </Helmet>
       <div
         className={`absolute top-0 right-0 transition-all duration-300 ease-in-out ${
           isCollapsed ? `left-16` : ` left-56`
         }`}>
-        admin dashboard
+        student dashboard.
       </div>
     </>
   );
 };
 
-export default Dashboard;
+export default StudentDashboard;
