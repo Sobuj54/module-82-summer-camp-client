@@ -33,6 +33,9 @@ const Register = () => {
               })
               .catch((error) => {
                 console.log(error);
+                toast.error("Something went wrong !", {
+                  position: toast.POSITION.TOP_CENTER,
+                });
               });
           })
           .catch((error) => console.log(error));
@@ -42,7 +45,28 @@ const Register = () => {
 
   const handleGoogleRegister = () => {
     googleLogIn()
-      .then(() => {})
+      .then((result) => {
+        const newUser = result.user;
+        // console.log(newUser);
+        axios
+          .post("http://localhost:5000/users", {
+            name: newUser.displayName,
+            email: newUser.email,
+            photoURL: newUser.photoURL,
+          })
+          .then((res) => {
+            // console.log(res.data);
+            if (res.data.insertedId) {
+              navigate("/");
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+            toast.error("Something went wrong !", {
+              position: toast.POSITION.TOP_CENTER,
+            });
+          });
+      })
       .catch((error) => {
         console.log(error);
         toast.error("Something went wrong !", {
