@@ -4,6 +4,7 @@ import useContextApi from "../../Hooks/useContextApi";
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
 
 const Login = () => {
   const { logIn, googleLogIn } = useContextApi();
@@ -24,7 +25,28 @@ const Login = () => {
   // google log in
   const handleGoogleLogIn = () => {
     googleLogIn()
-      .then(() => {})
+      .then((result) => {
+        const newUser = result.user;
+        // console.log(newUser);
+        axios
+          .post("http://localhost:5000/users", {
+            name: newUser.displayName,
+            email: newUser.email,
+            photoURL: newUser.photoURL,
+          })
+          .then((res) => {
+            console.log(res.data);
+            if (res.data.insertedId) {
+              navigate("/");
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+            toast.error("Something went wrong !", {
+              position: toast.POSITION.TOP_CENTER,
+            });
+          });
+      })
       .catch((error) => {
         console.log(error);
         toast.error("Something went wrong !", {
@@ -154,7 +176,7 @@ const Login = () => {
                       <path d="M20.283 10.356h-8.327v3.451h4.792c-.446 2.193-2.313 3.453-4.792 3.453a5.27 5.27 0 0 1-5.279-5.28 5.27 5.27 0 0 1 5.279-5.279c1.259 0 2.397.447 3.29 1.178l2.6-2.599c-1.584-1.381-3.615-2.233-5.89-2.233a8.908 8.908 0 0 0-8.934 8.934 8.907 8.907 0 0 0 8.934 8.934c4.467 0 8.529-3.249 8.529-8.934 0-.528-.081-1.097-.202-1.625z"></path>
                     </svg>
                   </div>
-                  Sign in with Google
+                  Log in with Google
                 </button>
               </div>
             </div>
