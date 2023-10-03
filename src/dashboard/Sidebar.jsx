@@ -56,7 +56,7 @@ const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
         {/* dashboard */}
         <NavLink
           to={
-            admin ? "/dashboard/dashboardHome" : "/dashboard/studentDashboard"
+            admin ? "/dashboard/adminDashboard" : "/dashboard/studentDashboard"
           }
           className="text-lg font-sans dark:text-white flex items-center">
           <FontAwesomeIcon icon={faCubes} className="mr-5 text-xl" />{" "}

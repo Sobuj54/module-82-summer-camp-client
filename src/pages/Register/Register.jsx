@@ -1,23 +1,40 @@
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import icon from "../../assets/register/web-svgrepo-com.svg";
 import { useForm } from "react-hook-form";
 import useContextApi from "../../Hooks/useContextApi";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
 
 const Register = () => {
   const { createUser, updateUserProfile, googleLogIn } = useContextApi();
   const { register, handleSubmit } = useForm();
+  const navigate = useNavigate();
 
   const onSubmit = (data) => {
     const { name, email, password, photo } = data;
-    console.log(data);
-    // create user with email password
+
     createUser(email, password)
       .then(() => {
         updateUserProfile(name, photo)
-          .then(() => {})
+          .then(() => {
+            axios
+              .post("http://localhost:5000/users", {
+                name: name,
+                email: email,
+                photoURL: photo,
+              })
+              .then((res) => {
+                // console.log(res.data);
+                if (res.data.insertedId) {
+                  navigate("/");
+                }
+              })
+              .catch((error) => {
+                console.log(error);
+              });
+          })
           .catch((error) => console.log(error));
       })
       .catch((error) => console.log(error));

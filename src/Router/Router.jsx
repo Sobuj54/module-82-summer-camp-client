@@ -90,6 +90,7 @@ const Router = createBrowserRouter([
     path: "dashboard",
     element: <Layout></Layout>,
     children: [
+      //student dashboard
       {
         path: "studentDashboard",
         element: <StudentDashboard></StudentDashboard>,
@@ -104,7 +105,7 @@ const Router = createBrowserRouter([
       },
       // admin
       {
-        path: "dashboardHome",
+        path: "adminDashboard",
         element: <Dashboard></Dashboard>,
       },
       {
