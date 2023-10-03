@@ -1,6 +1,5 @@
 import {
   faBars,
-  faCartShopping,
   faChevronLeft,
   faCubes,
   faHouse,
@@ -8,14 +7,28 @@ import {
   faUsers,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import useContextApi from "../Hooks/useContextApi";
 
 const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
   const handleSidebar = () => {
     setIsCollapsed(!isCollapsed);
   };
 
+  const { user } = useContextApi();
+  const [currentUserInfo, setCurrentUserInfo] = useState("");
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/users/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log(data);
+        setCurrentUserInfo(data);
+      });
+  }, []);
+
+  const { name, email, photoURL, role } = currentUserInfo;
   const admin = true;
 
   return (
@@ -23,6 +36,7 @@ const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
       className={`fixed top-0 bottom-0 left-0 dark:bg-gray-950 transition-all duration-300 ease-in-out ${
         isCollapsed ? `w-16` : `w-56 `
       } border-2 dark:border-gray-950`}>
+      {/* hamburger and collapse button */}
       <div
         className={`flex items-center justify-end ${
           isCollapsed && "justify-center"
@@ -44,7 +58,24 @@ const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
 
       <div className="w-full h-[1px] bg-black dark:bg-cyan-300 mb-5" />
 
-      <div className="ml-4 flex flex-col gap-7">
+      <div className="flex flex-col items-center gap-2 mb-5">
+        <img
+          src={photoURL}
+          alt="user"
+          className={`w-16 h-16 ${isCollapsed && "w-14 h-14"} rounded-full`}
+        />
+        {isCollapsed || (
+          <>
+            <h4 className="text-xl">{name}</h4>
+            <p className="text-lg overflow-hidden">{email}</p>
+            <p className="text-base">Role: {role}</p>
+          </>
+        )}
+      </div>
+
+      <div className="w-full h-[1px] bg-black dark:bg-cyan-300 mb-5" />
+
+      <div className="ml-4 flex flex-col gap-7 overflow-hidden ">
         {/* home */}
         <Link
           to="/"

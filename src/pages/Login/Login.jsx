@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useContextApi from "../../Hooks/useContextApi";
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
@@ -7,8 +7,12 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 
 const Login = () => {
+  const navigate = useNavigate();
   const { logIn, googleLogIn } = useContextApi();
   const { register, handleSubmit } = useForm();
+  const location = useLocation();
+
+  const redirectLocation = location?.state?.from?.pathname;
 
   const onSubmit = (data) => {
     const { email, password } = data;
@@ -16,10 +20,16 @@ const Login = () => {
     // login
     logIn(email, password)
       .then((result) => {
-        const currentUser = result.user;
-        console.log(currentUser);
+        // const currentUser = result.user;
+        // console.log(currentUser);
+        navigate(redirectLocation || "/");
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error);
+        toast.error("Something went wrong !", {
+          position: toast.POSITION.TOP_CENTER,
+        });
+      });
   };
 
   // google log in
@@ -27,6 +37,7 @@ const Login = () => {
     googleLogIn()
       .then((result) => {
         const newUser = result.user;
+
         // console.log(newUser);
         axios
           .post("http://localhost:5000/users", {
@@ -37,9 +48,6 @@ const Login = () => {
           })
           .then((res) => {
             console.log(res.data);
-            if (res.data.insertedId) {
-              navigate("/");
-            }
           })
           .catch((error) => {
             console.log(error);
@@ -47,6 +55,7 @@ const Login = () => {
               position: toast.POSITION.TOP_CENTER,
             });
           });
+        navigate(redirectLocation || "/");
       })
       .catch((error) => {
         console.log(error);
