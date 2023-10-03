@@ -9,6 +9,8 @@ const NavBar = () => {
   const { user, logOut } = useContextApi();
   const [isOpen, setIsOpen] = useState(false);
 
+  const isAdmin = true;
+
   const openAndClose = () => {
     setIsOpen(!isOpen);
   };
@@ -54,7 +56,9 @@ const NavBar = () => {
       </NavLink>
 
       <NavLink
-        to="/dashboard/studentDashboard"
+        to={
+          isAdmin ? "/dashboard/adminDashboard" : "/dashboard/studentDashboard"
+        }
         onClick={openAndClose}
         className={`${({ isActive }) => {
           isActive ? "active" : "";

@@ -15,7 +15,7 @@ const SwitchTheme = () => {
   };
 
   return (
-    <DarkModeSwitch checked={darkMode} onChange={toggleDarkMode} size={35} />
+    <DarkModeSwitch checked={darkMode} onChange={toggleDarkMode} size={32} />
   );
 };
 

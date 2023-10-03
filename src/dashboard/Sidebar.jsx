@@ -16,7 +16,7 @@ const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
     setIsCollapsed(!isCollapsed);
   };
 
-  const admin = !true;
+  const admin = true;
 
   return (
     <div
