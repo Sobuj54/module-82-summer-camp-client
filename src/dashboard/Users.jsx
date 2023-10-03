@@ -32,7 +32,6 @@ const Users = () => {
         if (res.data.modifiedCount > 0) {
           toast.success(`User is now ${newRole?.role}`, {
             position: toast.POSITION.TOP_CENTER,
-            autoClose: 7000,
           });
         }
       }),
@@ -72,7 +71,7 @@ const Users = () => {
                 <th>#</th>
                 <th>Name</th>
                 <th>Email</th>
-                <th>Status</th>
+                <th>Current Role</th>
                 <th>Make Admin</th>
                 <th>Make Instructor</th>
               </tr>
@@ -83,7 +82,7 @@ const Users = () => {
                   <td className="text-center">{index + 1}</td>
                   <td className="text-center">{user?.name}</td>
                   <td className="text-center">{user?.email}</td>
-                  <td className="text-center">{user?.role}</td>
+                  <td className="text-center capitalize">{user?.role}</td>
 
                   {/* make admin */}
                   <td className="text-center">

@@ -11,6 +11,7 @@ import ManageClasses from "../dashboard/ManageClasses";
 import StudentDashboard from "../dashboard/StudentDashboard/StudentDashboard";
 import SelectedClasses from "../dashboard/StudentDashboard/SelectedClasses";
 import EnrolledClasses from "../dashboard/StudentDashboard/EnrolledClasses";
+import PrivateRoute from "../Route/PrivateRoute";
 
 const Classes = lazy(() => import("../pages/Classes/Classes"));
 const Instructors = lazy(() => import("../pages/Instructors/Instructors"));
@@ -88,7 +89,11 @@ const Router = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: <Layout></Layout>,
+    element: (
+      <PrivateRoute>
+        <Layout></Layout>
+      </PrivateRoute>
+    ),
     children: [
       //student dashboard
       {
