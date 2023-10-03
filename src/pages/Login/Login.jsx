@@ -33,6 +33,7 @@ const Login = () => {
             name: newUser.displayName,
             email: newUser.email,
             photoURL: newUser.photoURL,
+            role: "student",
           })
           .then((res) => {
             console.log(res.data);

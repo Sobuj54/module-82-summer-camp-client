@@ -24,6 +24,7 @@ const Register = () => {
                 name: name,
                 email: email,
                 photoURL: photo,
+                role: "student",
               })
               .then((res) => {
                 // console.log(res.data);
@@ -53,6 +54,7 @@ const Register = () => {
             name: newUser.displayName,
             email: newUser.email,
             photoURL: newUser.photoURL,
+            role: "student",
           })
           .then((res) => {
             // console.log(res.data);

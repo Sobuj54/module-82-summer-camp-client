@@ -1,8 +1,16 @@
-import { useQuery } from "@tanstack/react-query";
+import {
+  faUserLarge,
+  faUserShield,
+  faUserTie,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import React from "react";
 import { Helmet } from "react-helmet-async";
 import { useOutletContext } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Users = () => {
   const [isCollapsed] = useOutletContext();
@@ -14,6 +22,29 @@ const Users = () => {
       return res.data;
     },
   });
+
+  // using useMutation hook
+  const queryClient = useQueryClient();
+  const mutation = useMutation({
+    mutationFn: (newRole) =>
+      axios.patch(`http://localhost:5000/users`, newRole).then((res) => {
+        // console.log(res.data);
+        if (res.data.modifiedCount > 0) {
+          toast.success(`User is now ${newRole?.role}`, {
+            position: toast.POSITION.TOP_CENTER,
+            autoClose: 7000,
+          });
+        }
+      }),
+
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["users"] });
+    },
+  });
+
+  const updateUserRole = (id, role) => {
+    mutation.mutate({ id: id, role: role });
+  };
 
   return (
     <>
@@ -35,13 +66,15 @@ const Users = () => {
             </div>
           </div>
         ) : (
-          <table className="table-auto w-full border-separate border-spacing-4">
+          <table className="table-auto w-full border-separate border-spacing-6">
             <thead>
               <tr>
                 <th>#</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Status</th>
+                <th>Make Admin</th>
+                <th>Make Instructor</th>
               </tr>
             </thead>
             <tbody>
@@ -51,12 +84,47 @@ const Users = () => {
                   <td className="text-center">{user?.name}</td>
                   <td className="text-center">{user?.email}</td>
                   <td className="text-center">{user?.role}</td>
+
+                  {/* make admin */}
+                  <td className="text-center">
+                    {user?.role === "admin" ? (
+                      <button
+                        onClick={() => updateUserRole(user?._id, "student")}
+                        className="bg-green-500 px-3 py-2 rounded-lg text-white">
+                        <FontAwesomeIcon icon={faUserShield} />
+                      </button>
+                    ) : (
+                      <button
+                        onClick={() => updateUserRole(user?._id, "admin")}
+                        className="bg-red-500 px-3 py-2 text-white rounded-lg">
+                        <FontAwesomeIcon icon={faUserLarge} />
+                      </button>
+                    )}
+                  </td>
+
+                  {/* make instructor */}
+                  <td className="text-center">
+                    {user?.role === "instructor" ? (
+                      <button
+                        onClick={() => updateUserRole(user?._id, "student")}
+                        className="bg-green-500 px-3 py-2 rounded-lg text-white">
+                        <FontAwesomeIcon icon={faUserTie} />
+                      </button>
+                    ) : (
+                      <button
+                        onClick={() => updateUserRole(user?._id, "instructor")}
+                        className="bg-red-500 px-3 py-2 text-white rounded-lg">
+                        <FontAwesomeIcon icon={faUserLarge} />
+                      </button>
+                    )}
+                  </td>
                 </tr>
               ))}
             </tbody>
           </table>
         )}
       </div>
+      <ToastContainer />
     </>
   );
 };
