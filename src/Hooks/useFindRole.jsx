@@ -6,7 +6,7 @@ const useFindRole = () => {
   const { user, isAdminLoading } = useContextApi();
 
   const { data = "", isLoading } = useQuery({
-    queryKey: ["role"],
+    queryKey: ["role", user?.email],
     queryFn: async () => {
       const res = await axios(`http://localhost:5000/users/${user?.email}`);
       return res.data;

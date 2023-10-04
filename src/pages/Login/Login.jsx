@@ -12,7 +12,7 @@ const Login = () => {
   const { register, handleSubmit } = useForm();
   const location = useLocation();
 
-  const redirectLocation = location?.state?.from?.pathname;
+  const redirectLocation = location?.state?.from?.pathname || "/";
 
   const onSubmit = (data) => {
     const { email, password } = data;
@@ -22,7 +22,7 @@ const Login = () => {
       .then((result) => {
         // const currentUser = result.user;
         // console.log(currentUser);
-        navigate(redirectLocation || "/");
+        navigate(redirectLocation);
       })
       .catch((error) => {
         console.log(error);
@@ -55,7 +55,7 @@ const Login = () => {
               position: toast.POSITION.TOP_CENTER,
             });
           });
-        navigate(redirectLocation || "/");
+        navigate(redirectLocation);
       })
       .catch((error) => {
         console.log(error);

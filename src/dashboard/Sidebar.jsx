@@ -29,6 +29,7 @@ const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
   }, []);
 
   const { name, email, photoURL, role } = currentUserInfo;
+  console.log(role);
   // const admin = true;
 
   return (
