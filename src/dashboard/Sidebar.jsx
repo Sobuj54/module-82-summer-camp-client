@@ -29,13 +29,13 @@ const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
   }, []);
 
   const { name, email, photoURL, role } = currentUserInfo;
-  const admin = true;
+  // const admin = true;
 
   return (
     <div
       className={`fixed top-0 bottom-0 left-0 dark:bg-gray-950 transition-all duration-300 ease-in-out ${
         isCollapsed ? `w-16` : `w-56 `
-      } border-2 dark:border-gray-950`}>
+      } border-2 dark:border-gray-600`}>
       {/* hamburger and collapse button */}
       <div
         className={`flex items-center justify-end ${
@@ -58,11 +58,11 @@ const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
 
       <div className="w-full h-[1px] bg-black dark:bg-cyan-300 mb-5" />
 
-      <div className="flex flex-col items-center gap-2 mb-5">
+      <div className="flex flex-col dark:text-white items-center gap-2 mb-5">
         <img
           src={photoURL}
           alt="user"
-          className={`w-16 h-16 ${isCollapsed && "w-14 h-14"} rounded-full`}
+          className={` ${isCollapsed ? `w-12 h-12` : `w-16 h-16`} rounded-full`}
         />
         {isCollapsed || (
           <>
@@ -87,7 +87,9 @@ const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
         {/* dashboard */}
         <NavLink
           to={
-            admin ? "/dashboard/adminDashboard" : "/dashboard/studentDashboard"
+            role === "admin"
+              ? "/dashboard/adminDashboard"
+              : "/dashboard/studentDashboard"
           }
           className="text-lg font-sans dark:text-white flex items-center">
           <FontAwesomeIcon icon={faCubes} className="mr-5 text-xl" />{" "}
@@ -96,21 +98,27 @@ const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
 
         {/* manage classes */}
         <NavLink
-          to={admin ? "/dashboard/manageClasses" : "/dashboard/selectedClasses"}
+          to={
+            role === "admin"
+              ? "/dashboard/manageClasses"
+              : "/dashboard/selectedClasses"
+          }
           className="text-lg font-sans dark:text-white flex items-center">
           <FontAwesomeIcon icon={faListCheck} className="mr-5 text-xl" />{" "}
           <span className={`${isCollapsed && `hidden`}`}>
-            {admin ? "Manage Classes" : "Selected Classes"}
+            {role === "admin" ? "Manage Classes" : "Selected Classes"}
           </span>
         </NavLink>
 
         {/* manage users */}
         <NavLink
-          to={admin ? "/dashboard/users" : "/dashboard/enrolledClasses"}
+          to={
+            role === "admin" ? "/dashboard/users" : "/dashboard/enrolledClasses"
+          }
           className="text-lg font-sans dark:text-white flex items-center">
           <FontAwesomeIcon icon={faUsers} className="mr-5 text-xl" />{" "}
           <span className={`${isCollapsed && `hidden`}`}>
-            {admin ? "Manage Users" : "Enrolled Classes"}
+            {role === "admin" ? "Manage Users" : "Enrolled Classes"}
           </span>
         </NavLink>
       </div>

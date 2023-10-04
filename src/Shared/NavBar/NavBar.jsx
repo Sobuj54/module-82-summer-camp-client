@@ -3,13 +3,14 @@ import "./NavBar.css";
 import { useState } from "react";
 import SwitchTheme from "../../components/SwitchTheme/SwitchTheme";
 import useContextApi from "../../Hooks/useContextApi";
+import useFindRole from "../../Hooks/useFindRole";
 
 const NavBar = () => {
   // this is custom hook for context api
   const { user, logOut } = useContextApi();
+  const [role] = useFindRole();
+  console.log(role);
   const [isOpen, setIsOpen] = useState(false);
-
-  const isAdmin = true;
 
   const openAndClose = () => {
     setIsOpen(!isOpen);
@@ -57,7 +58,9 @@ const NavBar = () => {
 
       <NavLink
         to={
-          isAdmin ? "/dashboard/adminDashboard" : "/dashboard/studentDashboard"
+          role === "admin"
+            ? "/dashboard/adminDashboard"
+            : "/dashboard/studentDashboard"
         }
         onClick={openAndClose}
         className={`${({ isActive }) => {

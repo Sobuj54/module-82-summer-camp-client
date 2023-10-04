@@ -11,6 +11,7 @@ import { Helmet } from "react-helmet-async";
 import { useOutletContext } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import DashboardTitle from "./DashboardTitle/DashboardTitle";
 
 const Users = () => {
   const [isCollapsed] = useOutletContext();
@@ -51,9 +52,10 @@ const Users = () => {
         <title>Admin | Manage Users</title>
       </Helmet>
       <div
-        className={`absolute top-0 right-0 transition-all duration-300 ease-in-out ${
+        className={`absolute top-0 right-0 bottom-0 dark:bg-gray-950 transition-all duration-300 ease-in-out ${
           isCollapsed ? `left-16` : ` left-56`
         }`}>
+        <DashboardTitle title="Manage Users"></DashboardTitle>
         {isLoading ? (
           <div className="flex items-center justify-center h-screen w-full">
             <div
@@ -65,7 +67,7 @@ const Users = () => {
             </div>
           </div>
         ) : (
-          <table className="table-auto w-full border-separate border-spacing-6">
+          <table className="table-auto w-full border-separate border-spacing-6 dark:text-white">
             <thead>
               <tr>
                 <th>#</th>

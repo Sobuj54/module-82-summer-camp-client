@@ -5,7 +5,6 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import { Suspense, lazy } from "react";
 import Layout from "../dashboard/Layout";
-import Dashboard from "../Dashboard/Dashboard";
 import Users from "../dashboard/Users";
 import ManageClasses from "../dashboard/ManageClasses";
 import StudentDashboard from "../dashboard/StudentDashboard/StudentDashboard";

@@ -18,20 +18,24 @@ const Context = ({ children }) => {
   const googleProvider = new GoogleAuthProvider();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [isAdminLoading, setIsAdminLoading] = useState(true);
 
   const createUser = (email, password) => {
     setLoading(true);
+    setIsAdminLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   const logIn = (email, password) => {
     setLoading(true);
+    setIsAdminLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   // google login
   const googleLogIn = () => {
     setLoading(true);
+    setIsAdminLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
 
@@ -47,6 +51,10 @@ const Context = ({ children }) => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       console.log(currentUser);
+
+      if (currentUser) {
+        setIsAdminLoading(false);
+      }
       setLoading(false);
     });
     return () => unSubscribe();
@@ -54,6 +62,7 @@ const Context = ({ children }) => {
 
   const logOut = () => {
     setLoading(true);
+    setIsAdminLoading(true);
     return signOut(auth);
   };
 
@@ -61,6 +70,7 @@ const Context = ({ children }) => {
     user,
     createUser,
     loading,
+    isAdminLoading,
     logIn,
     googleLogIn,
     logOut,
