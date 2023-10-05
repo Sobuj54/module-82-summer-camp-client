@@ -12,14 +12,14 @@ const Login = () => {
   const { register, handleSubmit } = useForm();
   const location = useLocation();
 
-  const from = location?.state?.from?.pathname || "/";
+  const from = location.state?.from?.pathname || "/";
 
   const onSubmit = (data) => {
     const { email, password } = data;
 
     // login
     logIn(email, password)
-      .then((result) => {
+      .then(() => {
         // const currentUser = result.user;
         // console.log(currentUser);
         navigate(from, { replace: true });

@@ -7,34 +7,30 @@ import {
   faUsers,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import useContextApi from "../Hooks/useContextApi";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
 
 const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
   const axiosSecure = useAxiosSecure();
+  const { user, isAdminLoading } = useContextApi();
 
   const handleSidebar = () => {
     setIsCollapsed(!isCollapsed);
   };
 
-  const { user } = useContextApi();
-  const [currentUserInfo, setCurrentUserInfo] = useState("");
+  const { data: currentUser } = useQuery({
+    queryKey: ["currentUser", user?.email],
+    queryFn: async () => {
+      const res = await axiosSecure.get(`/users/details?email=${user?.email}`);
+      return res.data;
+    },
+    enabled: !isAdminLoading,
+  });
 
-  useEffect(() => {
-    axiosSecure(`/users/${user?.email}`)
-      .then((res) => {
-        console.log(res.data);
-        setCurrentUserInfo(res.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [user]);
-
-  const { name, email, photoURL, role } = currentUserInfo;
-  console.log(role);
+  console.log(currentUser);
   // const admin = true;
 
   return (
@@ -66,15 +62,15 @@ const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
 
       <div className="flex flex-col dark:text-white items-center gap-2 mb-5">
         <img
-          src={photoURL}
+          src={currentUser?.photoURL}
           alt="user"
           className={` ${isCollapsed ? `w-12 h-12` : `w-16 h-16`} rounded-full`}
         />
         {isCollapsed || (
           <>
-            <h4 className="text-xl">{name}</h4>
-            <p className="text-lg overflow-hidden">{email}</p>
-            <p className="text-base">Role: {role}</p>
+            <h4 className="text-xl">{currentUser?.name}</h4>
+            <p className="text-lg overflow-hidden">{currentUser?.email}</p>
+            <p className="text-base">Role: {currentUser?.role}</p>
           </>
         )}
       </div>
@@ -93,7 +89,7 @@ const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
         {/* dashboard */}
         <NavLink
           to={
-            role === "admin"
+            currentUser?.role === "admin"
               ? "/dashboard/adminDashboard"
               : "/dashboard/studentDashboard"
           }
@@ -105,26 +101,32 @@ const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
         {/* manage classes */}
         <NavLink
           to={
-            role === "admin"
+            currentUser?.role === "admin"
               ? "/dashboard/manageClasses"
               : "/dashboard/selectedClasses"
           }
           className="text-lg font-sans dark:text-white flex items-center">
           <FontAwesomeIcon icon={faListCheck} className="mr-5 text-xl" />{" "}
           <span className={`${isCollapsed && `hidden`}`}>
-            {role === "admin" ? "Manage Classes" : "Selected Classes"}
+            {currentUser?.role === "admin"
+              ? "Manage Classes"
+              : "Selected Classes"}
           </span>
         </NavLink>
 
         {/* manage users */}
         <NavLink
           to={
-            role === "admin" ? "/dashboard/users" : "/dashboard/enrolledClasses"
+            currentUser?.role === "admin"
+              ? "/dashboard/users"
+              : "/dashboard/enrolledClasses"
           }
           className="text-lg font-sans dark:text-white flex items-center">
           <FontAwesomeIcon icon={faUsers} className="mr-5 text-xl" />{" "}
           <span className={`${isCollapsed && `hidden`}`}>
-            {role === "admin" ? "Manage Users" : "Enrolled Classes"}
+            {currentUser?.role === "admin"
+              ? "Manage Users"
+              : "Enrolled Classes"}
           </span>
         </NavLink>
       </div>

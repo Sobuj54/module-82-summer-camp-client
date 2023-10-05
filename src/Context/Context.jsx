@@ -13,9 +13,9 @@ import app from "../Firebase/firebase.config";
 import axios from "axios";
 
 export const AuthContext = createContext(null);
-const auth = getAuth(app);
 
 const Context = ({ children }) => {
+  const auth = getAuth(app);
   const googleProvider = new GoogleAuthProvider();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -58,14 +58,16 @@ const Context = ({ children }) => {
         axios
           .post("http://localhost:5000/jwt", { email: currentUser?.email })
           .then((res) => {
-            localStorage.setItem("token", res?.data?.token);
+            localStorage.setItem("token", res.data.token);
             setIsAdminLoading(false);
           });
       } else {
         localStorage.removeItem("token");
       }
     });
-    return () => unSubscribe();
+    return () => {
+      return unSubscribe();
+    };
   }, []);
 
   const logOut = () => {
