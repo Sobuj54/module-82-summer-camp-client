@@ -12,6 +12,7 @@ import SelectedClasses from "../dashboard/StudentDashboard/SelectedClasses";
 import EnrolledClasses from "../dashboard/StudentDashboard/EnrolledClasses";
 import PrivateRoute from "../Route/PrivateRoute";
 import Dashboard from "../dashboard/Dashboard";
+import AdminRoute from "../Route/AdminRoute";
 
 const Classes = lazy(() => import("../pages/Classes/Classes"));
 const Instructors = lazy(() => import("../pages/Instructors/Instructors"));
@@ -46,7 +47,7 @@ const Router = createBrowserRouter([
             fallback={
               <div className="w-full flex items-center justify-center my-10">
                 <div
-                  className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                  className="inline-block text-blue-500 h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
                   role="status">
                   <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
                     Loading...
@@ -65,7 +66,7 @@ const Router = createBrowserRouter([
             fallback={
               <div className="w-full flex items-center justify-center my-10">
                 <div
-                  className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                  className="inline-block text-blue-500 h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
                   role="status">
                   <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
                     Loading...
@@ -108,18 +109,30 @@ const Router = createBrowserRouter([
         path: "enrolledClasses",
         element: <EnrolledClasses></EnrolledClasses>,
       },
-      // admin
+      // admin routes
       {
         path: "adminDashboard",
-        element: <Dashboard></Dashboard>,
+        element: (
+          <AdminRoute>
+            <Dashboard></Dashboard>
+          </AdminRoute>
+        ),
       },
       {
         path: "users",
-        element: <Users></Users>,
+        element: (
+          <AdminRoute>
+            <Users></Users>
+          </AdminRoute>
+        ),
       },
       {
         path: "manageClasses",
-        element: <ManageClasses></ManageClasses>,
+        element: (
+          <AdminRoute>
+            <ManageClasses></ManageClasses>
+          </AdminRoute>
+        ),
       },
     ],
   },

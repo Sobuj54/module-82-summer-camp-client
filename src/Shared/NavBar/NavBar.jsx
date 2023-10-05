@@ -8,8 +8,7 @@ import useFindRole from "../../Hooks/useFindRole";
 const NavBar = () => {
   // this is custom hook for context api
   const { user, logOut } = useContextApi();
-  const [role] = useFindRole();
-  console.log(role);
+  const [userRole] = useFindRole();
   const [isOpen, setIsOpen] = useState(false);
 
   const openAndClose = () => {
@@ -58,7 +57,7 @@ const NavBar = () => {
 
       <NavLink
         to={
-          role === "admin"
+          userRole?.role === "admin"
             ? "/dashboard/adminDashboard"
             : "/dashboard/studentDashboard"
         }

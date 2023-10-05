@@ -1,22 +1,21 @@
 import useContextApi from "./useContextApi";
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
+import useAxiosSecure from "./useAxiosSecure";
 
 const useFindRole = () => {
+  const axiosSecure = useAxiosSecure();
   const { user, isAdminLoading } = useContextApi();
 
-  const { data = "", isLoading } = useQuery({
+  const { data: userRole, isLoading: adminIsLoading } = useQuery({
     queryKey: ["role", user?.email],
     queryFn: async () => {
-      const res = await axios(`http://localhost:5000/users/${user?.email}`);
+      const res = await axiosSecure(`/users/role?email=${user?.email}`);
       return res.data;
     },
     enabled: !isAdminLoading,
   });
 
-  const { role } = data;
-
-  return [role, isLoading];
+  return [userRole, adminIsLoading];
 };
 
 export default useFindRole;

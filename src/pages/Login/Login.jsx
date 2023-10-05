@@ -12,7 +12,7 @@ const Login = () => {
   const { register, handleSubmit } = useForm();
   const location = useLocation();
 
-  const redirectLocation = location?.state?.from?.pathname || "/";
+  const from = location?.state?.from?.pathname || "/";
 
   const onSubmit = (data) => {
     const { email, password } = data;
@@ -22,7 +22,7 @@ const Login = () => {
       .then((result) => {
         // const currentUser = result.user;
         // console.log(currentUser);
-        navigate(redirectLocation, { replace: true });
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.log(error);
@@ -46,9 +46,8 @@ const Login = () => {
             photoURL: newUser.photoURL,
             role: "student",
           })
-          .then((res) => {
-            navigate(redirectLocation, { replace: true });
-            console.log(res.data);
+          .then(() => {
+            navigate(from, { replace: true });
           })
           .catch((error) => {
             console.log(error);

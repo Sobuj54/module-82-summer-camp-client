@@ -1,12 +1,14 @@
 import React from "react";
 import useContextApi from "../Hooks/useContextApi";
-import { Navigate, useLocation } from "react-router-dom";
+import useFindRole from "../Hooks/useFindRole";
+import { useLocation } from "react-router-dom";
 
-const PrivateRoute = ({ children }) => {
+const AdminRoute = ({ children }) => {
   const { user, loading } = useContextApi();
+  const [userRole, adminIsLoading] = useFindRole();
   const location = useLocation();
 
-  if (loading) {
+  if (loading || adminIsLoading) {
     return (
       <div className="flex items-center justify-center h-screen w-full">
         <div
@@ -20,11 +22,11 @@ const PrivateRoute = ({ children }) => {
     );
   }
 
-  if (user) {
+  if (user && userRole?.role) {
     return children;
   }
 
   return <Navigate to="/login" state={{ from: location }}></Navigate>;
 };
 
-export default PrivateRoute;
+export default AdminRoute;

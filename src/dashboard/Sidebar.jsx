@@ -10,8 +10,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import useContextApi from "../Hooks/useContextApi";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
 
 const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
+  const axiosSecure = useAxiosSecure();
+
   const handleSidebar = () => {
     setIsCollapsed(!isCollapsed);
   };
@@ -20,13 +23,15 @@ const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
   const [currentUserInfo, setCurrentUserInfo] = useState("");
 
   useEffect(() => {
-    fetch(`http://localhost:5000/users/${user?.email}`)
-      .then((res) => res.json())
-      .then((data) => {
-        // console.log(data);
-        setCurrentUserInfo(data);
+    axiosSecure(`/users/${user?.email}`)
+      .then((res) => {
+        console.log(res.data);
+        setCurrentUserInfo(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
       });
-  }, []);
+  }, [user]);
 
   const { name, email, photoURL, role } = currentUserInfo;
   console.log(role);
