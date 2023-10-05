@@ -10,6 +10,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import app from "../Firebase/firebase.config";
+import axios from "axios";
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
@@ -51,11 +52,18 @@ const Context = ({ children }) => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       console.log(currentUser);
+      setLoading(false);
 
       if (currentUser) {
-        setIsAdminLoading(false);
+        axios
+          .post("http://localhost:5000/jwt", { email: currentUser?.email })
+          .then((res) => {
+            localStorage.setItem("token", res?.data?.token);
+            setIsAdminLoading(false);
+          });
+      } else {
+        localStorage.removeItem("token");
       }
-      setLoading(false);
     });
     return () => unSubscribe();
   }, []);

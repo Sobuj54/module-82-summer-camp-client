@@ -22,7 +22,7 @@ const Login = () => {
       .then((result) => {
         // const currentUser = result.user;
         // console.log(currentUser);
-        navigate(redirectLocation);
+        navigate(redirectLocation, { replace: true });
       })
       .catch((error) => {
         console.log(error);
@@ -47,6 +47,7 @@ const Login = () => {
             role: "student",
           })
           .then((res) => {
+            navigate(redirectLocation, { replace: true });
             console.log(res.data);
           })
           .catch((error) => {
@@ -55,7 +56,6 @@ const Login = () => {
               position: toast.POSITION.TOP_CENTER,
             });
           });
-        navigate(redirectLocation);
       })
       .catch((error) => {
         console.log(error);
