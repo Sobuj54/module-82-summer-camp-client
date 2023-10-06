@@ -1,6 +1,7 @@
 import {
   faBars,
   faChevronLeft,
+  faCreditCard,
   faCubes,
   faHouse,
   faListCheck,
@@ -29,9 +30,6 @@ const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
     },
     enabled: !isAdminLoading,
   });
-
-  console.log(currentUser);
-  // const admin = true;
 
   return (
     <div
@@ -64,7 +62,9 @@ const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
         <img
           src={currentUser?.photoURL}
           alt="user"
-          className={` ${isCollapsed ? `w-12 h-12` : `w-16 h-16`} rounded-full`}
+          className={` ${
+            isCollapsed ? `w-12 h-12` : `w-16 h-16`
+          } rounded-full object-cover`}
         />
         {isCollapsed || (
           <>
@@ -97,6 +97,18 @@ const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
           <FontAwesomeIcon icon={faCubes} className="mr-5 text-xl" />{" "}
           <span className={` ${isCollapsed && `hidden`}`}>Dashboard</span>
         </NavLink>
+
+        {/* payment section for students */}
+        {currentUser?.role === "student" ? (
+          <NavLink
+            to="/dashboard/payment"
+            className="text-lg font-sans dark:text-white flex items-center">
+            <FontAwesomeIcon icon={faCreditCard} className="mr-5 text-xl" />
+            <span className={` ${isCollapsed && `hidden`}`}>Payment</span>
+          </NavLink>
+        ) : (
+          <></>
+        )}
 
         {/* manage classes */}
         <NavLink
