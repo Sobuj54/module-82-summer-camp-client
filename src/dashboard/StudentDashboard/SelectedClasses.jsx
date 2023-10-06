@@ -4,18 +4,46 @@ import { Link, useOutletContext } from "react-router-dom";
 import DashboardTitle from "../DashboardTitle/DashboardTitle";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const SelectedClasses = () => {
   const [isCollapsed] = useOutletContext();
   const axiosSecure = useAxiosSecure();
 
-  const { data: selectedClasses = [], isLoading } = useQuery({
+  const {
+    data: selectedClasses = [],
+    isLoading,
+    refetch,
+  } = useQuery({
     queryKey: ["selectedClasses"],
     queryFn: async () => {
       const res = await axiosSecure.get("/classes/enrolled");
       return res.data;
     },
   });
+
+  const handleDeleteSelectedClass = (id, name) => {
+    axiosSecure
+      .delete(`/classes/enrolled/${id}`)
+      .then((res) => {
+        // console.log(res.data);
+        if (res.data.deletedCount > 0) {
+          toast.success(`${name} is deleted`, {
+            position: toast.POSITION.TOP_CENTER,
+          });
+          refetch();
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error(`Something went wrong`, {
+          position: toast.POSITION.TOP_CENTER,
+        });
+      });
+  };
 
   return (
     <>
@@ -61,22 +89,41 @@ const SelectedClasses = () => {
                     />
                   </td>
                   <td>{selectedClass?.name}</td>
-                  <td>{selectedClass?.price}</td>
+                  <td>${selectedClass?.price}</td>
                   <td>
                     {" "}
-                    <Link>
-                      <button className="bg-amber-500 px-3 py-2 rounded-md text-white font-amaranth font-medium">
-                        Pay Now
+                    {selectedClass?.isPaid ? (
+                      <button className="bg-green-500 px-3 py-2 rounded-md text-white font-amaranth font-medium">
+                        Paid
                       </button>
-                    </Link>
+                    ) : (
+                      <Link to="/dashboard/payment">
+                        <button className="bg-amber-500 px-3 py-2 rounded-md text-white font-amaranth font-medium">
+                          Pay Now
+                        </button>
+                      </Link>
+                    )}
                   </td>
-                  <td>delete</td>
+                  {/* delete button */}
+                  <td>
+                    <button
+                      onClick={() =>
+                        handleDeleteSelectedClass(
+                          selectedClass?._id,
+                          selectedClass?.name
+                        )
+                      }
+                      className="bg-red-500 px-4 py-3 text-white rounded-md">
+                      <FontAwesomeIcon icon={faTrashCan} />
+                    </button>
+                  </td>
                 </tr>
               ))}
             </tbody>
           </table>
         )}
       </div>
+      <ToastContainer />
     </>
   );
 };
