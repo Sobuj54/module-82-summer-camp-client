@@ -8,6 +8,7 @@ import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Swal from "sweetalert2";
 
 const SelectedClasses = () => {
   const [isCollapsed] = useOutletContext();
@@ -26,23 +27,35 @@ const SelectedClasses = () => {
   });
 
   const handleDeleteSelectedClass = (id, name) => {
-    axiosSecure
-      .delete(`/classes/enrolled/${id}`)
-      .then((res) => {
-        // console.log(res.data);
-        if (res.data.deletedCount > 0) {
-          toast.success(`${name} is deleted`, {
-            position: toast.POSITION.TOP_CENTER,
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure
+          .delete(`/classes/enrolled/${id}`)
+          .then((res) => {
+            // console.log(res.data);
+            if (res.data.deletedCount > 0) {
+              toast.success(`${name} is deleted`, {
+                position: toast.POSITION.TOP_CENTER,
+              });
+              refetch();
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+            toast.error(`Something went wrong`, {
+              position: toast.POSITION.TOP_CENTER,
+            });
           });
-          refetch();
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-        toast.error(`Something went wrong`, {
-          position: toast.POSITION.TOP_CENTER,
-        });
-      });
+      }
+    });
   };
 
   return (

@@ -10,6 +10,7 @@ const ClassCard = ({ Class }) => {
 
   const { img, name, age_group, schedule, price, available_seats, instructor } =
     Class;
+
   const handleEnrollClass = () => {
     axiosSecure
       .post("/classes/enrolled", {
@@ -23,7 +24,7 @@ const ClassCard = ({ Class }) => {
       .then((res) => {
         // console.log(res.data);
         if (res.data.insertedId) {
-          toast.success(`You've enrolled in ${name} class !`, {
+          toast.success(`You've enrolled in ${name} class`, {
             position: toast.POSITION.TOP_CENTER,
           });
         }
