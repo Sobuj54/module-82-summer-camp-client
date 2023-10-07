@@ -1,7 +1,7 @@
 import React from "react";
 import useContextApi from "../Hooks/useContextApi";
 import useFindRole from "../Hooks/useFindRole";
-import { useLocation } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 
 const StudentRoute = ({ children }) => {
   const { user, loading } = useContextApi();
@@ -26,9 +26,7 @@ const StudentRoute = ({ children }) => {
     return children;
   }
 
-  return (
-    <Navigate to="/login" state={{ from: location }} replace={true}></Navigate>
-  );
+  return <Navigate to="/" state={{ from: location }} replace={true}></Navigate>;
 };
 
 export default StudentRoute;
