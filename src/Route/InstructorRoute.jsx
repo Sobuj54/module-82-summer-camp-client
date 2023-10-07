@@ -1,9 +1,9 @@
 import React from "react";
 import useContextApi from "../Hooks/useContextApi";
 import useFindRole from "../Hooks/useFindRole";
-import { useLocation } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 
-const AdminRoute = ({ children }) => {
+const InstructorRoute = ({ children }) => {
   const { user, loading } = useContextApi();
   const [userRole, adminIsLoading] = useFindRole();
   const location = useLocation();
@@ -22,7 +22,7 @@ const AdminRoute = ({ children }) => {
     );
   }
 
-  if (user && userRole.role === "admin") {
+  if (user && userRole.role === "instructor") {
     return children;
   }
 
@@ -31,4 +31,4 @@ const AdminRoute = ({ children }) => {
   );
 };
 
-export default AdminRoute;
+export default InstructorRoute;
