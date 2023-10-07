@@ -91,6 +91,8 @@ const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
           to={
             currentUser?.role === "admin"
               ? "/dashboard/adminDashboard"
+              : currentUser?.role === "instructor"
+              ? "/dashboard/instructorDashboard"
               : "/dashboard/studentDashboard"
           }
           className="text-lg font-sans dark:text-white flex items-center">

@@ -59,6 +59,8 @@ const NavBar = () => {
         to={
           userRole?.role === "admin"
             ? "/dashboard/adminDashboard"
+            : userRole?.role === "instructor"
+            ? "/dashboard/instructorDashboard"
             : "/dashboard/studentDashboard"
         }
         onClick={openAndClose}

@@ -22,7 +22,7 @@ const AdminRoute = ({ children }) => {
     );
   }
 
-  if (user && userRole?.role) {
+  if (user && userRole.role === "admin") {
     return children;
   }
 
