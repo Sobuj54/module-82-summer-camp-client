@@ -4,7 +4,9 @@ import {
   faCreditCard,
   faCubes,
   faHouse,
+  faList,
   faListCheck,
+  faPlus,
   faUsers,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -117,13 +119,21 @@ const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
           to={
             currentUser?.role === "admin"
               ? "/dashboard/manageClasses"
+              : currentUser?.role === "instructor"
+              ? "/dashboard/addClass"
               : "/dashboard/selectedClasses"
           }
           className="text-lg font-sans dark:text-white flex items-center">
-          <FontAwesomeIcon icon={faListCheck} className="mr-5 text-xl" />{" "}
+          {currentUser?.role === "instructor" ? (
+            <FontAwesomeIcon icon={faPlus} className="mr-5 text-xl" />
+          ) : (
+            <FontAwesomeIcon icon={faListCheck} className="mr-5 text-xl" />
+          )}{" "}
           <span className={`${isCollapsed && `hidden`}`}>
             {currentUser?.role === "admin"
               ? "Manage Classes"
+              : currentUser?.role === "instructor"
+              ? "Add a Class"
               : "Selected Classes"}
           </span>
         </NavLink>
@@ -136,10 +146,16 @@ const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
               : "/dashboard/enrolledClasses"
           }
           className="text-lg font-sans dark:text-white flex items-center">
-          <FontAwesomeIcon icon={faUsers} className="mr-5 text-xl" />{" "}
+          {currentUser?.role === "instructor" ? (
+            <FontAwesomeIcon icon={faList} className="mr-5 text-xl" />
+          ) : (
+            <FontAwesomeIcon icon={faUsers} className="mr-5 text-xl" />
+          )}{" "}
           <span className={`${isCollapsed && `hidden`}`}>
             {currentUser?.role === "admin"
               ? "Manage Users"
+              : currentUser?.role === "instructor"
+              ? "My Classes"
               : "Enrolled Classes"}
           </span>
         </NavLink>
