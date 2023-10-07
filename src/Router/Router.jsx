@@ -18,6 +18,7 @@ import InstructorDashboard from "../dashboard/InstructorDashboard/InstructorDash
 import InstructorRoute from "../Route/InstructorRoute";
 import StudentRoute from "../Route/StudentRoute";
 import AddClass from "../dashboard/InstructorDashboard/AddClass";
+import MyClasses from "../dashboard/InstructorDashboard/MyClasses";
 
 const Classes = lazy(() => import("../pages/Classes/Classes"));
 const Instructors = lazy(() => import("../pages/Instructors/Instructors"));
@@ -148,6 +149,14 @@ const Router = createBrowserRouter([
         element: (
           <InstructorRoute>
             <AddClass></AddClass>
+          </InstructorRoute>
+        ),
+      },
+      {
+        path: "myClasses",
+        element: (
+          <InstructorRoute>
+            <MyClasses></MyClasses>
           </InstructorRoute>
         ),
       },
