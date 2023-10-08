@@ -9,7 +9,7 @@ const InstructorDashboard = () => {
   return (
     <>
       <Helmet>
-        <title>Admin | Dashboard</title>
+        <title>Dashboard | Instructor Dashboard</title>
       </Helmet>
       <div
         className={`absolute top-0 right-0 transition-all duration-300 ease-in-out ${
