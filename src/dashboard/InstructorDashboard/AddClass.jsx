@@ -6,12 +6,14 @@ import { useForm } from "react-hook-form";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import useContextApi from "../../Hooks/useContextApi";
 
 const AddClass = () => {
   const [isCollapsed] = useOutletContext();
   const axiosSecure = useAxiosSecure();
+  const { user } = useContextApi();
 
-  const { handleSubmit, register } = useForm();
+  const { handleSubmit, register, reset } = useForm();
 
   const onSubmit = (data) => {
     // console.log(data);
@@ -24,6 +26,7 @@ const AddClass = () => {
       availableSeats,
       classTime,
       instructorName,
+      instructorEmail,
     } = data;
 
     axiosSecure
@@ -34,8 +37,10 @@ const AddClass = () => {
         age_group: ageLimit,
         price: parseInt(price),
         available_seats: parseInt(availableSeats),
+        enrolledStudents: parseInt(0),
         schedule: classTime,
         instructor: instructorName,
+        email: instructorEmail,
         status: "pending",
       })
       .then((res) => {
@@ -44,6 +49,7 @@ const AddClass = () => {
           toast.success("Successfully added a class !", {
             position: toast.POSITION.TOP_CENTER,
           });
+          reset();
         }
       })
       .catch((error) => {
@@ -121,6 +127,7 @@ const AddClass = () => {
                         <div className="mt-2.5 relative">
                           <input
                             type="text"
+                            value={user?.displayName}
                             {...register("instructorName", { required: true })}
                             placeholder="Enter your full name"
                             className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600"
@@ -136,8 +143,9 @@ const AddClass = () => {
                         <div className="mt-2.5 relative">
                           <input
                             type="email"
-                            {...register("email", { required: true })}
+                            {...register("instructorEmail", { required: true })}
                             placeholder="Enter your email"
+                            value={user?.email}
                             className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600"
                           />
                         </div>

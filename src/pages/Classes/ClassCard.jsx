@@ -1,12 +1,14 @@
 import { useState } from "react";
 import ClassesModal from "./ClassesModal";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import useFindRole from "../../Hooks/useFindRole";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const ClassCard = ({ Class }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const axiosSecure = useAxiosSecure();
+  const [userRole] = useFindRole();
 
   const { img, name, age_group, schedule, price, available_seats, instructor } =
     Class;
@@ -76,6 +78,7 @@ const ClassCard = ({ Class }) => {
 
         <button
           onClick={handleEnrollClass}
+          disabled={userRole?.role !== "student"}
           className="bg-emerald-500 w-28 p-3 font-semibold rounded-lg text-white font-amita">
           Enroll
         </button>
