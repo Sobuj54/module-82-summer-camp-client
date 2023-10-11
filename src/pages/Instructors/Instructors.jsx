@@ -24,7 +24,7 @@ const Instructors = () => {
         title="Our Instructors"
         subTitle="Art & Craft / Instructors"></MiniHero>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 my-20 px-5 lg:px-0 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-20 px-5 lg:px-0 max-w-7xl mx-auto">
         {instructors.map((instructor) => (
           <Instructor key={instructor._id} instructor={instructor}></Instructor>
         ))}

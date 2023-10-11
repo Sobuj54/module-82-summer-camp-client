@@ -3,9 +3,13 @@ import { Helmet } from "react-helmet-async";
 import { useOutletContext } from "react-router-dom";
 import DashboardTitle from "../DashboardTitle/DashboardTitle";
 import { useForm } from "react-hook-form";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AddClass = () => {
   const [isCollapsed] = useOutletContext();
+  const axiosSecure = useAxiosSecure();
 
   const { handleSubmit, register } = useForm();
 
@@ -21,16 +25,33 @@ const AddClass = () => {
       classTime,
       instructorName,
     } = data;
-    console.log({
-      name: className,
-      img: classImg,
-      description: description,
-      age_group: ageLimit,
-      price: parseInt(price),
-      available_seats: parseInt(availableSeats),
-      schedule: classTime,
-      instructor: instructorName,
-    });
+
+    axiosSecure
+      .post("/classes/addClass", {
+        name: className,
+        img: classImg,
+        description: description,
+        age_group: ageLimit,
+        price: parseInt(price),
+        available_seats: parseInt(availableSeats),
+        schedule: classTime,
+        instructor: instructorName,
+        status: "pending",
+      })
+      .then((res) => {
+        // console.log(res.data);
+        if (res.data.insertedId) {
+          toast.success("Successfully added a class !", {
+            position: toast.POSITION.TOP_CENTER,
+          });
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error("Something went wrong !", {
+          position: toast.POSITION.TOP_LEFT,
+        });
+      });
   };
 
   return (
@@ -215,6 +236,7 @@ const AddClass = () => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </>
   );
 };
