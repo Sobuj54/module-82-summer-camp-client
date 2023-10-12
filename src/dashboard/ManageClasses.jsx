@@ -3,20 +3,22 @@ import { Helmet } from "react-helmet-async";
 import { useOutletContext } from "react-router-dom";
 import DashboardTitle from "./DashboardTitle/DashboardTitle";
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCommentDots,
   faSquareCheck,
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
 
 const ManageClasses = () => {
   const [isCollapsed] = useOutletContext();
+  const axiosSecure = useAxiosSecure();
 
   const { data: allClasses = [], isLoading: isDataLoading } = useQuery({
+    queryKey: ["allClasses"],
     queryFn: async () => {
-      const res = await axios.get("http://localhost:5000/classes");
+      const res = await axiosSecure.get("/classes/allClasses");
       return res.data;
     },
   });
@@ -69,22 +71,30 @@ const ManageClasses = () => {
                   </td>
                   <td className="text-center">{Class?.name}</td>
                   <td className="text-center">{Class?.instructor}</td>
-                  <td className="capitalize text-center">
-                    {Class?.status ? Class?.status : "approved"}
-                  </td>
+                  <td className="capitalize text-center">{Class?.status}</td>
                   <td className="text-center text-white">
-                    <button disabled={Class?.status === "approve"}>
+                    <button disabled={Class?.status === ""}>
                       <FontAwesomeIcon
                         icon={faSquareCheck}
                         className="bg-green-500 p-3 h-5 rounded-md"
                       />
                     </button>
                   </td>
-                  <td className="text-center">
-                    <FontAwesomeIcon icon={faXmark} />
+                  <td className="text-center text-white">
+                    <button disabled={Class?.status === "approved"}>
+                      <FontAwesomeIcon
+                        icon={faXmark}
+                        className="bg-red-500 p-3 h-5 rounded-md"
+                      />
+                    </button>
                   </td>
-                  <td className="text-center">
-                    <FontAwesomeIcon icon={faCommentDots} />
+                  <td className="text-center text-white">
+                    <button>
+                      <FontAwesomeIcon
+                        icon={faCommentDots}
+                        className="bg-amber-500 p-3 h-5 rounded-md"
+                      />
+                    </button>
                   </td>
                 </tr>
               ))}
