@@ -22,8 +22,6 @@ const MyClasses = () => {
     },
   });
 
-  console.log(instructorClasses);
-
   return (
     <>
       <Helmet>
