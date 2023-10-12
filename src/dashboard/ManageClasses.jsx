@@ -2,7 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet-async";
 import { useOutletContext } from "react-router-dom";
 import DashboardTitle from "./DashboardTitle/DashboardTitle";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCommentDots,
@@ -10,6 +10,8 @@ import {
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ManageClasses = () => {
   const [isCollapsed] = useOutletContext();
@@ -22,6 +24,34 @@ const ManageClasses = () => {
       return res.data;
     },
   });
+
+  const queryClient = useQueryClient();
+  const mutation = useMutation({
+    mutationFn: (updatedStatus) =>
+      axiosSecure
+        .patch("/classes/allClasses", updatedStatus)
+        .then((res) => {
+          // console.log(res.data);
+          if (res.data.modifiedCount > 0) {
+            toast.success(`Approved !`, {
+              position: toast.POSITION.TOP_CENTER,
+            });
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          toast.error("Error !", {
+            position: toast.POSITION.TOP_LEFT,
+          });
+        }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["allClasses"] });
+    },
+  });
+
+  const handleUpdateStatus = (newStatus, id) => {
+    mutation.mutate({ id: id, status: newStatus });
+  };
 
   return (
     <>
@@ -73,7 +103,10 @@ const ManageClasses = () => {
                   <td className="text-center">{Class?.instructor}</td>
                   <td className="capitalize text-center">{Class?.status}</td>
                   <td className="text-center text-white">
-                    <button disabled={Class?.status === ""}>
+                    {/*  approve button*/}
+                    <button
+                      onClick={() => handleUpdateStatus("approved", Class?._id)}
+                      disabled={Class?.status === "approved"}>
                       <FontAwesomeIcon
                         icon={faSquareCheck}
                         className="bg-green-500 p-3 h-5 rounded-md"
@@ -81,6 +114,7 @@ const ManageClasses = () => {
                     </button>
                   </td>
                   <td className="text-center text-white">
+                    {/* deny button */}
                     <button disabled={Class?.status === "approved"}>
                       <FontAwesomeIcon
                         icon={faXmark}
@@ -102,6 +136,7 @@ const ManageClasses = () => {
           </table>
         )}
       </div>
+      <ToastContainer />
     </>
   );
 };
