@@ -4,42 +4,48 @@
       "img": "https://images.unsplash.com/photo-1560421683-6856ea585c78?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXw2ODI3MjIyfHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=500&q=60",
       "headline": "Unleash Your Child's Creative Spirit!",
       "subheadline": "Join Us for an Artful Summer Adventure",
-      "cta": "Register Now"
+      "cta": "Register Now",
+      "link": "/register"
     },
     {
       "id": 2,
       "img": "https://img.freepik.com/free-photo/mosaic-puzzle-art-kids-children-s-creative-game-hands-are-playing-mosaic-table-colorful-multi-colored-details-close-up-creativity-children-s-development-learning-concept_155003-17727.jpg?size=626&ext=jpg",
       "headline": "Crafting Memories, One Masterpiece at a Time",
       "subheadline": "Summer Camp for Budding Artists of All Ages",
-      "cta": "Explore Classes"
+      "cta": "Explore Classes",
+      "link": "/classes"
     },
     {
       "id": 3,
       "img": "https://img.freepik.com/free-photo/mosaic-puzzle-art-kids-children-s-creative-game-hands-are-playing-mosaic-table-colorful-multi-colored-details-close-up_155003-20528.jpg?size=626&ext=jpg",
       "headline": "Hands-On Creativity Camp",
       "subheadline": "Where Imagination Meets Inspiration",
-      "cta": "Learn More"
+      "cta": "Login",
+      "link": "/login"
     },
     {
       "id": 4,
       "img": "https://img.freepik.com/free-photo/young-kids-making-diy-project-from-upcycled-materials_23-2149391103.jpg?size=626&ext=jpg",
       "headline": "Building Confidence Through Art",
       "subheadline": "Watch Your Child's Self-Esteem Soar",
-      "cta": "View Gallery"
+      "cta": "View Instructors",
+      "link": "/instructors"
     },
     {
       "id": 5,
       "img": "https://img.freepik.com/free-photo/cute-little-girl-painting-park_1157-18963.jpg?size=626&ext=jpg",
       "headline": "Nature, Art, and Adventure Combine",
       "subheadline": "Experience an Unforgettable Summer at Art & Craft",
-      "cta": "Contact Us"
+      "cta": "Dashboard",
+      "link": "/dashboard"
     },
     {
       "id": 6,
       "img": "https://images.unsplash.com/photo-1503875154399-95d2b151e3b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8NnwzMTUxOTYzfHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=500&q=60",
       "headline": "Supplies Ready, Creativity Unleashed",
       "subheadline": "Everything Your Child Needs for Artful Exploration",
-      "cta": "Enroll Today"
+      "cta": "Enroll Today",
+      "link": "/classes"
     }
   ]
   

@@ -29,7 +29,7 @@ const MyClassesCard = ({ Class }) => {
         {name}
       </h2>
       <h6 className="text-center dark:text-white/95 font-amaranth text-lg">
-        {age_group}
+        Age group : {age_group}
       </h6>
       <p className="dark:text-white/95 text-center font-amaranth mt-2">
         Available seats : {available_seats}

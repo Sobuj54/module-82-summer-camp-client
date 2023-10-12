@@ -5,21 +5,22 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import axios from "axios";
 import React from "react";
 import { Helmet } from "react-helmet-async";
 import { useOutletContext } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import DashboardTitle from "./DashboardTitle/DashboardTitle";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
 
 const Users = () => {
   const [isCollapsed] = useOutletContext();
+  const axiosSecure = useAxiosSecure();
 
   const { data: users = [], isLoading } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await axios.get("http://localhost:5000/users");
+      const res = await axiosSecure.get("/users");
       return res.data;
     },
   });
@@ -28,7 +29,7 @@ const Users = () => {
   const queryClient = useQueryClient();
   const mutation = useMutation({
     mutationFn: (newRole) =>
-      axios.patch(`http://localhost:5000/users`, newRole).then((res) => {
+      axiosSecure.patch(`/users`, newRole).then((res) => {
         // console.log(res.data);
         if (res.data.modifiedCount > 0) {
           toast.success(`User is now ${newRole?.role}`, {
