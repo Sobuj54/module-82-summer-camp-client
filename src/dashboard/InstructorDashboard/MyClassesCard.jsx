@@ -1,7 +1,10 @@
-import React from "react";
-import { useOutletContext } from "react-router-dom";
+import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useState } from "react";
 
 const MyClassesCard = ({ Class }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const {
     img,
     name,
@@ -11,9 +14,8 @@ const MyClassesCard = ({ Class }) => {
     available_seats,
     status,
     enrolledStudents,
+    Feedback,
   } = Class;
-
-  const [isCollapsed] = useOutletContext();
 
   return (
     <div className="border-2 border-amber-400 dark:border-emerald-300 p-5 rounded-lg relative shadow-xl shadow-yellow-400 dark:shadow-sky-400 mt-5 md:mt-10">
@@ -43,6 +45,36 @@ const MyClassesCard = ({ Class }) => {
       <p className="text-center dark:text-white/95 font-amaranth text-base my-2">
         Status : {status}
       </p>
+      {Feedback?.name && (
+        <div className="text-center mt-4">
+          <button
+            onClick={() => setIsModalOpen(!isModalOpen)}
+            className="bg-teal-500 py-2 px-3 font-medium rounded-md text-white">
+            Show Feedback
+          </button>
+        </div>
+      )}
+
+      {isModalOpen && (
+        <div className="fixed top-1/2 -translate-y-1/2 w-10/12 left-1/2 -translate-x-1/2 z-10 bg-gray-200 dark:bg-slate-900 rounded-3xl p-10 text-center">
+          {/* close button */}
+          <button
+            onClick={() => setIsModalOpen(!isModalOpen)}
+            className="text-white text-2xl absolute top-0 right-0 bg-red-500 rounded-full h-6 md:h-10 w-6 md:w-10 flex items-center justify-center">
+            <FontAwesomeIcon icon={faCircleXmark} />
+          </button>
+
+          <h4>
+            <span className="font-medium">From</span> : {Feedback?.name}
+          </h4>
+          <h6 className="my-4 capitalize">
+            <span className="font-medium">Role</span> : {Feedback?.role}
+          </h6>
+          <p>
+            <span className="font-medium">Feedback</span> : {Feedback?.feedback}
+          </p>
+        </div>
+      )}
     </div>
   );
 };
