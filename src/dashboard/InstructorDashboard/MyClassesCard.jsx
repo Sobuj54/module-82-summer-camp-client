@@ -1,11 +1,16 @@
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const MyClassesCard = ({ Class }) => {
+const MyClassesCard = ({ Class, refetch }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const axiosSecure = useAxiosSecure();
 
   const {
+    _id,
     img,
     name,
     age_group,
@@ -16,6 +21,25 @@ const MyClassesCard = ({ Class }) => {
     enrolledStudents,
     Feedback,
   } = Class;
+
+  const handleDelete = () => {
+    axiosSecure
+      .delete(`/classes/instructorClasses/${_id}`)
+      .then((res) => {
+        if (res.data.deletedCount === 1) {
+          toast.success(`Deletion successful !`, {
+            position: toast.POSITION.TOP_CENTER,
+          });
+          refetch();
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error("Error ! Something went wrong", {
+          position: toast.POSITION.TOP_CENTER,
+        });
+      });
+  };
 
   return (
     <div className="border-2 border-amber-400 dark:border-emerald-300 p-5 rounded-lg relative shadow-xl shadow-yellow-400 dark:shadow-sky-400 mt-5 md:mt-10">
@@ -45,15 +69,21 @@ const MyClassesCard = ({ Class }) => {
       <p className="text-center dark:text-white/95 font-amaranth text-base my-2">
         Status : {status}
       </p>
-      {Feedback?.name && (
-        <div className="text-center mt-4">
+
+      <div className="flex items-center justify-center gap-4 mt-4">
+        {Feedback?.name && (
           <button
             onClick={() => setIsModalOpen(!isModalOpen)}
             className="bg-teal-500 py-2 px-3 font-medium rounded-md text-white">
             Show Feedback
           </button>
-        </div>
-      )}
+        )}
+        <button
+          onClick={handleDelete}
+          className="bg-red-500 py-2 px-3 font-medium rounded-md text-white">
+          Delete
+        </button>
+      </div>
 
       {isModalOpen && (
         <div className="fixed top-1/2 -translate-y-1/2 w-10/12 left-1/2 -translate-x-1/2 z-10 bg-gray-200 dark:bg-slate-900 rounded-3xl p-10 text-center">
@@ -75,6 +105,7 @@ const MyClassesCard = ({ Class }) => {
           </p>
         </div>
       )}
+      <ToastContainer />
     </div>
   );
 };

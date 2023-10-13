@@ -12,7 +12,11 @@ const MyClasses = () => {
   const axiosSecure = useAxiosSecure();
   const { user } = useContextApi();
 
-  const { data: instructorClasses = [], isLoading } = useQuery({
+  const {
+    data: instructorClasses = [],
+    isLoading,
+    refetch,
+  } = useQuery({
     queryKey: ["instructorClasses", user?.email],
     queryFn: async () => {
       const res = await axiosSecure.get(
@@ -46,7 +50,10 @@ const MyClasses = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 lg:max-w-7xl px-3">
             {instructorClasses.map((Class) => (
-              <MyClassesCard key={Class._id} Class={Class}></MyClassesCard>
+              <MyClassesCard
+                key={Class._id}
+                Class={Class}
+                refetch={refetch}></MyClassesCard>
             ))}
           </div>
         </div>
