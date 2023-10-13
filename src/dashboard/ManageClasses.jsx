@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { useOutletContext } from "react-router-dom";
 import DashboardTitle from "./DashboardTitle/DashboardTitle";
@@ -12,10 +12,13 @@ import {
 import useAxiosSecure from "../Hooks/useAxiosSecure";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import FeedbackModal from "./FeedbackModal";
 
 const ManageClasses = () => {
   const [isCollapsed] = useOutletContext();
   const axiosSecure = useAxiosSecure();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [idForModal, setIdForModal] = useState(null);
 
   const { data: allClasses = [], isLoading: isDataLoading } = useQuery({
     queryKey: ["allClasses"],
@@ -33,7 +36,7 @@ const ManageClasses = () => {
         .then((res) => {
           // console.log(res.data);
           if (res.data.modifiedCount > 0) {
-            toast.success(`Approved !`, {
+            toast.success(`${updatedStatus?.status} !`, {
               position: toast.POSITION.TOP_CENTER,
             });
           }
@@ -51,6 +54,11 @@ const ManageClasses = () => {
 
   const handleUpdateStatus = (newStatus, id) => {
     mutation.mutate({ id: id, status: newStatus });
+  };
+
+  const handleModal = (id) => {
+    setIsModalOpen(!isModalOpen);
+    setIdForModal(id);
   };
 
   return (
@@ -101,32 +109,51 @@ const ManageClasses = () => {
                   </td>
                   <td className="text-center">{Class?.name}</td>
                   <td className="text-center">{Class?.instructor}</td>
-                  <td className="capitalize text-center">{Class?.status}</td>
+                  <td className="capitalize text-center underline underline-offset-4 font-semibold">
+                    {Class?.status}
+                  </td>
                   <td className="text-center text-white">
                     {/*  approve button*/}
                     <button
                       onClick={() => handleUpdateStatus("approved", Class?._id)}
-                      disabled={Class?.status === "approved"}>
+                      disabled={Class?.status !== "pending"}>
                       <FontAwesomeIcon
                         icon={faSquareCheck}
-                        className="bg-green-500 p-3 h-5 rounded-md"
+                        className={`${
+                          Class?.status !== "pending"
+                            ? "bg-slate-400"
+                            : "bg-green-500"
+                        }  p-3 h-5 rounded-md`}
                       />
                     </button>
                   </td>
                   <td className="text-center text-white">
                     {/* deny button */}
-                    <button disabled={Class?.status === "approved"}>
+                    <button
+                      onClick={() => handleUpdateStatus("denied", Class?._id)}
+                      disabled={Class?.status !== "pending"}>
                       <FontAwesomeIcon
                         icon={faXmark}
-                        className="bg-red-500 p-3 h-5 rounded-md"
+                        className={`${
+                          Class?.status !== "pending"
+                            ? "bg-gray-400"
+                            : "bg-red-500"
+                        }  p-3 h-5 rounded-md`}
                       />
                     </button>
                   </td>
+                  {/* feedback button */}
                   <td className="text-center text-white">
-                    <button>
+                    <button
+                      onClick={() => handleModal(Class._id)}
+                      disabled={Class?.status !== "denied"}>
                       <FontAwesomeIcon
                         icon={faCommentDots}
-                        className="bg-amber-500 p-3 h-5 rounded-md"
+                        className={`${
+                          Class?.status !== "denied"
+                            ? "bg-gray-400"
+                            : "bg-amber-500"
+                        }  p-3 h-5 rounded-md`}
                       />
                     </button>
                   </td>
@@ -134,6 +161,12 @@ const ManageClasses = () => {
               ))}
             </tbody>
           </table>
+        )}
+        {isModalOpen && (
+          <FeedbackModal
+            isModalOpen={isModalOpen}
+            setIsModalOpen={setIsModalOpen}
+            idForModal={idForModal}></FeedbackModal>
         )}
       </div>
       <ToastContainer />
