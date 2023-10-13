@@ -109,7 +109,14 @@ const ManageClasses = () => {
                   </td>
                   <td className="text-center">{Class?.name}</td>
                   <td className="text-center">{Class?.instructor}</td>
-                  <td className="capitalize text-center underline underline-offset-4 font-semibold">
+                  <td
+                    className={`${
+                      Class?.status === "approved"
+                        ? "text-green-600"
+                        : Class?.status === "denied"
+                        ? "text-red-500"
+                        : ""
+                    } capitalize text-center underline underline-offset-4 font-semibold`}>
                     {Class?.status}
                   </td>
                   <td className="text-center text-white">

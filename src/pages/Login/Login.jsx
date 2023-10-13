@@ -71,7 +71,7 @@ const Login = () => {
       </Helmet>
       <section className="bg-white dark:bg-gray-950">
         <div className="grid grid-cols-1 max-w-7xl mx-auto">
-          <div className="flex items-center justify-center px-4 py-10 bg-white dark:bg-gray-950 sm:px-6 lg:px-8 sm:py-16 lg:py-24">
+          <div className="flex items-center justify-center px-4 py-8 bg-white dark:bg-gray-950 sm:px-6 lg:px-8 sm:py-14 lg:py-18">
             <div className="xl:w-full  xl:max-w-md 2xl:max-w-lg xl:mx-auto border-4 border-teal-400 p-6 shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)] rounded-lg">
               <h2 className="text-3xl font-bold font-amaranth leading-tight text-black dark:text-white/95 sm:text-4xl text-center">
                 Log in to Art & Craft

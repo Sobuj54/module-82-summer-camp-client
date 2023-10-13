@@ -19,10 +19,11 @@ const FeedbackModal = ({ isModalOpen, setIsModalOpen, idForModal }) => {
       .put(`/classes/feedback/${idForModal}`, data)
       .then((res) => {
         if (res.data.modifiedCount > 0) {
+          reset();
+          setIsModalOpen(!isModalOpen);
           toast.success(`Feedback is Sent !`, {
             position: toast.POSITION.TOP_CENTER,
           });
-          reset();
         }
       })
       .catch(() => {
