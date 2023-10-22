@@ -40,7 +40,7 @@ const Login = () => {
 
         // console.log(newUser);
         axios
-          .post("http://localhost:5000/users", {
+          .post("https://summer-camp-server-lac-tau.vercel.app/users", {
             name: newUser.displayName,
             email: newUser.email,
             photoURL: newUser.photoURL,

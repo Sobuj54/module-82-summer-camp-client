@@ -20,7 +20,7 @@ const Register = () => {
         updateUserProfile(name, photo)
           .then(() => {
             axios
-              .post("http://localhost:5000/users", {
+              .post("https://summer-camp-server-lac-tau.vercel.app/users", {
                 name: name,
                 email: email,
                 photoURL: photo,
@@ -50,7 +50,7 @@ const Register = () => {
         const newUser = result.user;
         // console.log(newUser);
         axios
-          .post("http://localhost:5000/users", {
+          .post("https://summer-camp-server-lac-tau.vercel.app/users", {
             name: newUser.displayName,
             email: newUser.email,
             photoURL: newUser.photoURL,

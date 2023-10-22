@@ -4,7 +4,7 @@ import useContextApi from "./useContextApi";
 import { useNavigate } from "react-router-dom";
 
 const axiosSecure = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: "https://summer-camp-server-lac-tau.vercel.app",
 });
 
 const useAxiosSecure = () => {

@@ -56,7 +56,9 @@ const Context = ({ children }) => {
 
       if (currentUser) {
         axios
-          .post("http://localhost:5000/jwt", { email: currentUser?.email })
+          .post("https://summer-camp-server-lac-tau.vercel.app/jwt", {
+            email: currentUser?.email,
+          })
           .then((res) => {
             localStorage.setItem("token", res.data.token);
             setIsAdminLoading(false);
