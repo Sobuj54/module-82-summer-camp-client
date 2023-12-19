@@ -19,7 +19,9 @@ import InstructorRoute from "../Route/InstructorRoute";
 import StudentRoute from "../Route/StudentRoute";
 import AddClass from "../dashboard/InstructorDashboard/AddClass";
 import MyClasses from "../dashboard/InstructorDashboard/MyClasses";
+import Spinner from "../components/Spinner/Spinner";
 
+// dynamic import for code splitting
 const Classes = lazy(() => import("../pages/Classes/Classes"));
 const Instructors = lazy(() => import("../pages/Instructors/Instructors"));
 const ErrorPage = lazy(() => import("../pages/ErrorPage/ErrorPage"));
@@ -29,18 +31,7 @@ const Router = createBrowserRouter([
     path: "/",
     element: <App></App>,
     errorElement: (
-      <Suspense
-        fallback={
-          <div className="w-full flex items-center justify-center my-10">
-            <div
-              className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
-              role="status">
-              <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
-                Loading...
-              </span>
-            </div>
-          </div>
-        }>
+      <Suspense fallback={<Spinner></Spinner>}>
         <ErrorPage></ErrorPage>
       </Suspense>
     ),
@@ -49,18 +40,7 @@ const Router = createBrowserRouter([
       {
         path: "classes",
         element: (
-          <Suspense
-            fallback={
-              <div className="w-full flex items-center justify-center my-10">
-                <div
-                  className="inline-block text-blue-500 h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
-                  role="status">
-                  <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
-                    Loading...
-                  </span>
-                </div>
-              </div>
-            }>
+          <Suspense fallback={<Spinner></Spinner>}>
             <Classes></Classes>
           </Suspense>
         ),
@@ -68,18 +48,7 @@ const Router = createBrowserRouter([
       {
         path: "instructors",
         element: (
-          <Suspense
-            fallback={
-              <div className="w-full flex items-center justify-center my-10">
-                <div
-                  className="inline-block text-blue-500 h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
-                  role="status">
-                  <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
-                    Loading...
-                  </span>
-                </div>
-              </div>
-            }>
+          <Suspense fallback={<Spinner></Spinner>}>
             <Instructors></Instructors>
           </Suspense>
         ),
