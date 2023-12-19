@@ -8,7 +8,7 @@ const Classes = () => {
   const [classes, setClasses] = useState([]);
 
   useEffect(() => {
-    fetch(`https://summer-camp-server-lac-tau.vercel.app/classes?limit=0`)
+    fetch(`http://localhost:5000/classes?limit=0`)
       .then((res) => res.json())
       .then((data) => {
         setClasses(data);

@@ -4,6 +4,8 @@ import { useState } from "react";
 import SwitchTheme from "../../components/SwitchTheme/SwitchTheme";
 import useContextApi from "../../Hooks/useContextApi";
 import useFindRole from "../../Hooks/useFindRole";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const NavBar = () => {
   // this is custom hook for context api
@@ -18,7 +20,10 @@ const NavBar = () => {
   const handleLogOut = () => {
     logOut()
       .then(() => {
-        console.log("logged Out");
+        // console.log("logged Out");
+        toast.success("Logout Successful !", {
+          position: toast.POSITION.TOP_CENTER,
+        });
       })
       .catch((error) => console.log(error));
   };
@@ -186,6 +191,7 @@ const NavBar = () => {
           </div>
         </div>
       </div>
+      <ToastContainer></ToastContainer>
     </section>
   );
 };

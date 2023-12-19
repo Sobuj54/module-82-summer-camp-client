@@ -22,6 +22,9 @@ const Login = () => {
       .then(() => {
         // const currentUser = result.user;
         // console.log(currentUser);
+        toast.success("Login Successful !", {
+          position: toast.POSITION.TOP_CENTER,
+        });
         navigate(from, { replace: true });
       })
       .catch((error) => {
@@ -40,21 +43,23 @@ const Login = () => {
 
         // console.log(newUser);
         axios
-          .post("https://summer-camp-server-lac-tau.vercel.app/users", {
+          .post("http://localhost:5000/users", {
             name: newUser.displayName,
             email: newUser.email,
             photoURL: newUser.photoURL,
             role: "student",
           })
-          .then(() => {
-            navigate(from, { replace: true });
-          })
+          .then(() => {})
           .catch((error) => {
             console.log(error);
             toast.error("Something went wrong !", {
               position: toast.POSITION.TOP_CENTER,
             });
           });
+        navigate(from, { replace: true });
+        toast.success("Login Successful !", {
+          position: toast.POSITION.TOP_CENTER,
+        });
       })
       .catch((error) => {
         console.log(error);

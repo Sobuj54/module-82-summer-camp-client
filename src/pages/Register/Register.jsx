@@ -20,7 +20,7 @@ const Register = () => {
         updateUserProfile(name, photo)
           .then(() => {
             axios
-              .post("https://summer-camp-server-lac-tau.vercel.app/users", {
+              .post("http://localhost:5000/users", {
                 name: name,
                 email: email,
                 photoURL: photo,
@@ -30,6 +30,9 @@ const Register = () => {
                 // console.log(res.data);
                 if (res.data.insertedId) {
                   navigate("/");
+                  toast.success("Registration Successful !", {
+                    position: toast.POSITION.TOP_CENTER,
+                  });
                 }
               })
               .catch((error) => {
@@ -50,7 +53,7 @@ const Register = () => {
         const newUser = result.user;
         // console.log(newUser);
         axios
-          .post("https://summer-camp-server-lac-tau.vercel.app/users", {
+          .post("http://localhost:5000/users", {
             name: newUser.displayName,
             email: newUser.email,
             photoURL: newUser.photoURL,
@@ -60,6 +63,9 @@ const Register = () => {
             // console.log(res.data);
             if (res.data.insertedId) {
               navigate("/");
+              toast.success("Registration Successful !", {
+                position: toast.POSITION.TOP_CENTER,
+              });
             }
           })
           .catch((error) => {
