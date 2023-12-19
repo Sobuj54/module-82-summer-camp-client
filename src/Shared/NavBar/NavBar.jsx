@@ -124,7 +124,7 @@ const NavBar = () => {
           )}
 
           {/* nav links for large devices */}
-          <div className="hidden lg:flex lg:items-center lg:justify-center lg:space-x-10 font-amita font-semibold">
+          <div className="hidden lg:flex lg:items-center lg:justify-center lg:space-x-10 font-amaranth font-semibold">
             {navLinks}
           </div>
 

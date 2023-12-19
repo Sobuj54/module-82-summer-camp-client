@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import MiniHero from "../../Shared/MiniHero/MiniHero";
 import instructorImg from "../../assets/summerCamp/instructor.avif";
 import Instructor from "./Instructor";
+import { Helmet } from "react-helmet-async";
 
 const Instructors = () => {
   const [instructors, setInstructors] = useState([]);
@@ -19,6 +20,9 @@ const Instructors = () => {
 
   return (
     <div className="bg-teal-200/30 dark:bg-gray-950">
+      <Helmet>
+        <title>Art & Craft | Instructors</title>
+      </Helmet>
       <MiniHero
         image={instructorImg}
         title="Our Instructors"
