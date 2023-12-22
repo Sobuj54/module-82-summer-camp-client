@@ -9,8 +9,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Swal from "sweetalert2";
+import useContextApi from "../../Hooks/useContextApi";
 
 const SelectedClasses = () => {
+  const { user } = useContextApi();
   const [isCollapsed] = useOutletContext();
   const axiosSecure = useAxiosSecure();
 
@@ -21,7 +23,9 @@ const SelectedClasses = () => {
   } = useQuery({
     queryKey: ["selectedClasses"],
     queryFn: async () => {
-      const res = await axiosSecure.get("/classes/enrolled");
+      const res = await axiosSecure.get(
+        `/classes/enrolled?email=${user.email}`
+      );
       return res.data;
     },
   });

@@ -4,8 +4,10 @@ import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import useFindRole from "../../Hooks/useFindRole";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import useContextApi from "../../Hooks/useContextApi";
 
 const ClassCard = ({ Class }) => {
+  const { user } = useContextApi();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const axiosSecure = useAxiosSecure();
   const [userRole] = useFindRole();
@@ -16,6 +18,7 @@ const ClassCard = ({ Class }) => {
   const handleEnrollClass = () => {
     axiosSecure
       .post("/classes/enrolled", {
+        userEmail: user.email,
         name: name,
         img: img,
         price: price,
