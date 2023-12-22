@@ -12,12 +12,20 @@ const ClassCard = ({ Class }) => {
   const axiosSecure = useAxiosSecure();
   const [userRole] = useFindRole();
 
-  const { img, name, age_group, schedule, price, available_seats, instructor } =
-    Class;
+  const {
+    _id,
+    img,
+    name,
+    age_group,
+    schedule,
+    price,
+    available_seats,
+    instructor,
+  } = Class;
 
   const handleEnrollClass = () => {
     axiosSecure
-      .post("/classes/enrolled", {
+      .post("/classes/selected", {
         userEmail: user.email,
         name: name,
         img: img,
@@ -31,6 +39,7 @@ const ClassCard = ({ Class }) => {
         if (res.data.insertedId) {
           toast.success(`You've enrolled in ${name} class`, {
             position: toast.POSITION.TOP_CENTER,
+            autoClose: 1500,
           });
         }
       })
@@ -82,7 +91,9 @@ const ClassCard = ({ Class }) => {
         <button
           onClick={handleEnrollClass}
           disabled={userRole?.role !== "student"}
-          className="bg-emerald-500 w-28 p-3 font-semibold rounded-lg text-white font-amita">
+          className={`${
+            userRole?.role !== "student" ? "bg-gray-400" : "bg-emerald-500"
+          } w-28 p-3 font-semibold rounded-lg text-white font-amita`}>
           Enroll
         </button>
       </div>

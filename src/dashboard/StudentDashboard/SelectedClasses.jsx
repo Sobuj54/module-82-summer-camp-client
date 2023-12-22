@@ -3,32 +3,17 @@ import { Helmet } from "react-helmet-async";
 import { Link, useOutletContext } from "react-router-dom";
 import DashboardTitle from "../DashboardTitle/DashboardTitle";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
-import { useQuery } from "@tanstack/react-query";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Swal from "sweetalert2";
-import useContextApi from "../../Hooks/useContextApi";
+import useSelectedClasses from "../../Hooks/useSelectedClasses";
 
 const SelectedClasses = () => {
-  const { user } = useContextApi();
   const [isCollapsed] = useOutletContext();
   const axiosSecure = useAxiosSecure();
-
-  const {
-    data: selectedClasses = [],
-    isLoading,
-    refetch,
-  } = useQuery({
-    queryKey: ["selectedClasses"],
-    queryFn: async () => {
-      const res = await axiosSecure.get(
-        `/classes/enrolled?email=${user.email}`
-      );
-      return res.data;
-    },
-  });
+  const [selectedClasses, isLoading, refetch] = useSelectedClasses();
 
   const handleDeleteSelectedClass = (id, name) => {
     Swal.fire({
@@ -42,7 +27,7 @@ const SelectedClasses = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axiosSecure
-          .delete(`/classes/enrolled/${id}`)
+          .delete(`/classes/selected/${id}`)
           .then((res) => {
             // console.log(res.data);
             if (res.data.deletedCount > 0) {
