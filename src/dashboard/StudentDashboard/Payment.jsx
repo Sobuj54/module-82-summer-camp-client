@@ -5,6 +5,7 @@ import { useOutletContext } from "react-router-dom";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "./CheckoutForm/CheckoutForm";
 import { loadStripe } from "@stripe/stripe-js";
+import useSelectedClasses from "../../Hooks/useSelectedClasses";
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
@@ -12,6 +13,14 @@ const stipePromise = loadStripe(import.meta.env.VITE_paymentPK);
 
 const Payment = () => {
   const [isCollapsed] = useOutletContext();
+  const [selectedClasses] = useSelectedClasses();
+
+  const price = selectedClasses.reduce(
+    (total, Class) => total + Class.price,
+    0
+  );
+  const totalPrice = parseFloat(price.toFixed(2));
+
   return (
     <>
       <Helmet>
@@ -24,11 +33,9 @@ const Payment = () => {
         <DashboardTitle title="Payment"></DashboardTitle>
 
         {/* stripe card */}
-        <div>
-          <Elements stripe={stipePromise}>
-            <CheckoutForm></CheckoutForm>
-          </Elements>
-        </div>
+        <Elements stripe={stipePromise}>
+          <CheckoutForm totalPrice={totalPrice}></CheckoutForm>
+        </Elements>
       </div>
     </>
   );
