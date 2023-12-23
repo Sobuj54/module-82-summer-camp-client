@@ -3,24 +3,23 @@ import React, { useEffect, useState } from "react";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import useContextApi from "../../../Hooks/useContextApi";
 
-const CheckoutForm = ({ totalPrice }) => {
+const CheckoutForm = ({ selectedClasses, totalPrice }) => {
   const { user } = useContextApi();
   const stripe = useStripe();
   const elements = useElements();
   const [processing, setProcessing] = useState(false);
   const axiosSecure = useAxiosSecure();
   const [clientSecret, setClientSecret] = useState("");
-  console.log(totalPrice);
+  const [transactionId, setTransactionId] = useState("");
 
   // creating payment intent
   useEffect(() => {
     if (totalPrice > 0) {
       axiosSecure.post("/create-payment-intent", { totalPrice }).then((res) => {
-        console.log(res.data.clientSecret);
         setClientSecret(res.data.clientSecret);
       });
     }
-  }, []);
+  }, [totalPrice]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -32,7 +31,6 @@ const CheckoutForm = ({ totalPrice }) => {
     const card = elements.getElement(CardElement);
 
     if (card == null) {
-      console.log("no card found");
       return;
     }
 
@@ -46,7 +44,7 @@ const CheckoutForm = ({ totalPrice }) => {
     }
 
     setProcessing(true);
-
+    // accept card payment
     const { paymentIntent, error: confirmationError } =
       await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
@@ -62,6 +60,25 @@ const CheckoutForm = ({ totalPrice }) => {
     }
     console.log("paymentIntent :", paymentIntent);
     setProcessing(false);
+
+    if (paymentIntent.status === "succeeded") {
+      console.log(selectedClasses);
+      setTransactionId(paymentIntent.id);
+
+      const paymentDetails = {
+        email: user.email,
+        transactionId: paymentIntent.id,
+        totalPrice: totalPrice,
+        quantity: selectedClasses.length,
+        paidClasses: selectedClasses.map((Class) => Class.name),
+      };
+      console.log(paymentDetails);
+
+      axiosSecure.post("/payments", paymentDetails).then((res) => {
+        if (res.data.insertedId) {
+        }
+      });
+    }
   };
 
   return (
@@ -89,6 +106,9 @@ const CheckoutForm = ({ totalPrice }) => {
         style={{ cursor: "pointer" }}>
         Pay
       </button>
+      {transactionId && (
+        <p className="mt-10 text-green-400">Transaction Id: {transactionId}</p>
+      )}
     </form>
   );
 };

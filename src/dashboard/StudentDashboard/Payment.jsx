@@ -34,7 +34,9 @@ const Payment = () => {
 
         {/* stripe card */}
         <Elements stripe={stipePromise}>
-          <CheckoutForm totalPrice={totalPrice}></CheckoutForm>
+          <CheckoutForm
+            selectedClasses={selectedClasses}
+            totalPrice={totalPrice}></CheckoutForm>
         </Elements>
       </div>
     </>
